@@ -1,0 +1,198 @@
+{
+  "projectType": "general",
+  "projectName": "The Agency",
+  "projectDescription": "A complete collection of specialized AI agent personalities for every role in your development workflow, from frontend wizards to reality checkers.",
+  "theme": "mint",
+  "primaryColor": "#94cb04",
+  "lightColor": "#545454",
+  "darkColor": null,
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": ["introduction", "quickstart", "installation"]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": ["concepts/agent-design", "concepts/personality-traits", "concepts/deliverables", "concepts/workflows"]
+          },
+          {
+            "group": "Use Cases",
+            "pages": ["use-cases/startup-mvp", "use-cases/enterprise-feature", "use-cases/marketing-campaign"]
+          },
+          {
+            "group": "Contributing",
+            "pages": ["contributing/overview", "contributing/creating-agents", "contributing/agent-template"]
+          }
+        ]
+      },
+      {
+        "tab": "Agent Divisions",
+        "groups": [
+          {
+            "group": "Engineering",
+            "pages": [
+              "agents/engineering/frontend-developer",
+              "agents/engineering/backend-architect",
+              "agents/engineering/mobile-app-builder",
+              "agents/engineering/ai-engineer",
+              "agents/engineering/devops-automator",
+              "agents/engineering/rapid-prototyper",
+              "agents/engineering/senior-developer"
+            ]
+          },
+          {
+            "group": "Design",
+            "pages": [
+              "agents/design/ui-designer",
+              "agents/design/ux-researcher",
+              "agents/design/ux-architect",
+              "agents/design/brand-guardian",
+              "agents/design/visual-storyteller",
+              "agents/design/whimsy-injector",
+              "agents/design/image-prompt-engineer"
+            ]
+          },
+          {
+            "group": "Marketing",
+            "pages": [
+              "agents/marketing/growth-hacker",
+              "agents/marketing/content-creator",
+              "agents/marketing/twitter-engager",
+              "agents/marketing/tiktok-strategist",
+              "agents/marketing/instagram-curator",
+              "agents/marketing/reddit-community-builder",
+              "agents/marketing/app-store-optimizer",
+              "agents/marketing/social-media-strategist"
+            ]
+          },
+          {
+            "group": "Product",
+            "pages": [
+              "agents/product/sprint-prioritizer",
+              "agents/product/trend-researcher",
+              "agents/product/feedback-synthesizer"
+            ]
+          },
+          {
+            "group": "Project Management",
+            "pages": [
+              "agents/project-management/studio-producer",
+              "agents/project-management/project-shepherd",
+              "agents/project-management/studio-operations",
+              "agents/project-management/experiment-tracker",
+              "agents/project-management/senior-project-manager"
+            ]
+          },
+          {
+            "group": "Testing",
+            "pages": [
+              "agents/testing/evidence-collector",
+              "agents/testing/reality-checker",
+              "agents/testing/test-results-analyzer",
+              "agents/testing/performance-benchmarker",
+              "agents/testing/api-tester",
+              "agents/testing/tool-evaluator",
+              "agents/testing/workflow-optimizer"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "agents/support/support-responder",
+              "agents/support/analytics-reporter",
+              "agents/support/finance-tracker",
+              "agents/support/infrastructure-maintainer",
+              "agents/support/legal-compliance-checker",
+              "agents/support/executive-summary-generator"
+            ]
+          },
+          {
+            "group": "Spatial Computing",
+            "pages": [
+              "agents/spatial-computing/xr-interface-architect",
+              "agents/spatial-computing/macos-spatial-metal-engineer",
+              "agents/spatial-computing/xr-immersive-developer",
+              "agents/spatial-computing/xr-cockpit-interaction-specialist",
+              "agents/spatial-computing/visionos-spatial-engineer",
+              "agents/spatial-computing/terminal-integration-specialist"
+            ]
+          },
+          {
+            "group": "Specialized",
+            "pages": [
+              "agents/specialized/agents-orchestrator",
+              "agents/specialized/data-analytics-reporter",
+              "agents/specialized/lsp-index-engineer",
+              "agents/specialized/sales-data-extraction-agent",
+              "agents/specialized/data-consolidation-agent",
+              "agents/specialized/report-distribution-agent",
+              "agents/specialized/agentic-identity-trust"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "NEXUS Strategy",
+        "groups": [
+          {
+            "group": "Overview",
+            "pages": ["nexus/introduction", "nexus/executive-brief", "nexus/quickstart"]
+          },
+          {
+            "group": "Playbooks",
+            "pages": [
+              "nexus/playbooks/phase-0-discovery",
+              "nexus/playbooks/phase-1-strategy",
+              "nexus/playbooks/phase-2-foundation",
+              "nexus/playbooks/phase-3-build",
+              "nexus/playbooks/phase-4-hardening",
+              "nexus/playbooks/phase-5-launch",
+              "nexus/playbooks/phase-6-operate"
+            ]
+          },
+          {
+            "group": "Coordination",
+            "pages": [
+              "nexus/coordination/agent-activation",
+              "nexus/coordination/handoff-templates"
+            ]
+          },
+          {
+            "group": "Runbooks",
+            "pages": [
+              "nexus/runbooks/startup-mvp",
+              "nexus/runbooks/enterprise-feature",
+              "nexus/runbooks/marketing-campaign",
+              "nexus/runbooks/incident-response"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "55+ specialized AI agent personalities across 9 divisions",
+    "NEXUS orchestration framework for multi-agent coordination",
+    "Battle-tested workflows with deliverables and success metrics",
+    "Quality-first approach with Reality Checker validation",
+    "Production-ready agent templates for Claude Code integration",
+    "Comprehensive agent design philosophy with personality traits"
+  ],
+  "publicApiSurface": [
+    "Frontend Developer - Modern web app specialist",
+    "Backend Architect - Scalable system design expert",
+    "Reality Checker - Evidence-based quality validator",
+    "Agents Orchestrator - Multi-agent pipeline coordinator",
+    "Growth Hacker - Rapid user acquisition specialist",
+    "UX Architect - Technical architecture and UX foundation",
+    "Whimsy Injector - Playful brand personality designer",
+    "Reddit Community Builder - Authentic community engagement",
+    "NEXUS-Full - Complete product lifecycle (12-24 weeks)",
+    "NEXUS-Sprint - Feature/MVP build (2-6 weeks)",
+    "NEXUS-Micro - Targeted task execution (1-5 days)"
+  ]
+}
