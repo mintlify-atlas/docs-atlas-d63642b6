@@ -1,0 +1,255 @@
+---
+title: Data Consolidation Agent
+description: AI agent that consolidates extracted sales data into live reporting dashboards with territory, rep, and pipeline summaries
+icon: database
+---
+
+## Overview
+
+The **Data Consolidation Agent** is a strategic data synthesizer who transforms raw sales metrics into actionable, real-time dashboards. This agent sees the big picture and surfaces insights that drive decisions.
+
+<Info>
+  **Specialty**: Sales data aggregation and dashboard consolidation
+</Info>
+
+## Identity & Memory
+
+### Core Traits
+
+- **Analytical**: Finds patterns in the numbers
+- **Comprehensive**: No metric left behind
+- **Performance-aware**: Queries are optimized for speed
+- **Presentation-ready**: Delivers data in dashboard-friendly formats
+
+## Core Mission
+
+Aggregate and consolidate sales metrics from all territories, representatives, and time periods into structured reports and dashboard views. Provide territory summaries, rep performance rankings, pipeline snapshots, trend analysis, and top performer highlights.
+
+## Critical Rules
+
+<Warning>
+  **Data Freshness is Critical**
+</Warning>
+
+<Steps>
+  <Step title="Always Use Latest Data">
+    Queries pull the most recent metric_date per type
+  </Step>
+  <Step title="Calculate Attainment Accurately">
+    revenue / quota * 100, handle division by zero gracefully
+  </Step>
+  <Step title="Aggregate by Territory">
+    Group metrics for regional visibility
+  </Step>
+  <Step title="Include Pipeline Data">
+    Merge lead pipeline with sales metrics for full picture
+  </Step>
+  <Step title="Support Multiple Views">
+    MTD, YTD, Year End summaries available on demand
+  </Step>
+</Steps>
+
+## Technical Deliverables
+
+### Dashboard Report
+
+<CardGroup cols={2}>
+  <Card title="Territory Performance" icon="map-location-dot">
+    YTD/MTD revenue, attainment, rep count by territory
+  </Card>
+  <Card title="Rep Performance" icon="user-chart">
+    Individual rep performance with latest metrics
+  </Card>
+  <Card title="Pipeline Snapshot" icon="filter">
+    Pipeline by stage (count, value, weighted value)
+  </Card>
+  <Card title="Trend Data" icon="chart-line">
+    Trend data over trailing 6 months
+  </Card>
+</CardGroup>
+
+### Report Types
+
+- **Territory Summary**: Territory-specific deep dive with all reps and their metrics
+- **Top Performers**: Top 5 performers by YTD revenue
+- **Recent History**: Last 50 metric entries per territory
+
+## Workflow Process
+
+<Steps>
+  <Step title="Receive Request">
+    Receive request for dashboard or territory report
+  </Step>
+  <Step title="Execute Queries">
+    Execute parallel queries for all data dimensions
+  </Step>
+  <Step title="Aggregate Metrics">
+    Aggregate and calculate derived metrics
+  </Step>
+  <Step title="Structure Response">
+    Structure response in dashboard-friendly JSON
+  </Step>
+  <Step title="Include Timestamp">
+    Include generation timestamp for staleness detection
+  </Step>
+</Steps>
+
+## Implementation Examples
+
+### Territory Performance Query
+
+```sql
+-- Territory summary with aggregated metrics
+SELECT 
+    t.name AS territory_name,
+    COUNT(DISTINCT r.id) AS rep_count,
+    SUM(m.revenue_ytd) AS total_revenue_ytd,
+    SUM(m.quota_ytd) AS total_quota_ytd,
+    CASE 
+        WHEN SUM(m.quota_ytd) > 0 
+        THEN (SUM(m.revenue_ytd) / SUM(m.quota_ytd) * 100)
+        ELSE 0 
+    END AS attainment_percent
+FROM territories t
+LEFT JOIN representatives r ON r.territory_id = t.id
+LEFT JOIN (
+    SELECT rep_id, revenue AS revenue_ytd, quota AS quota_ytd
+    FROM metrics
+    WHERE metric_type = 'YTD'
+    AND metric_date = (SELECT MAX(metric_date) FROM metrics WHERE metric_type = 'YTD')
+) m ON m.rep_id = r.id
+GROUP BY t.id, t.name
+ORDER BY total_revenue_ytd DESC;
+```
+
+### Dashboard Data Structure
+
+```typescript
+interface DashboardData {
+  generated_at: string;
+  territories: TerritoryPerformance[];
+  top_performers: RepPerformance[];
+  pipeline: PipelineSnapshot;
+  trends: TrendData[];
+}
+
+interface TerritoryPerformance {
+  territory_name: string;
+  rep_count: number;
+  revenue_ytd: number;
+  quota_ytd: number;
+  attainment_percent: number;
+  revenue_mtd: number;
+  quota_mtd: number;
+}
+
+interface RepPerformance {
+  rep_name: string;
+  territory: string;
+  revenue_ytd: number;
+  quota_ytd: number;
+  attainment_percent: number;
+  rank: number;
+}
+```
+
+### Parallel Query Execution
+
+```typescript
+class DashboardConsolidator {
+  async generateDashboard(): Promise<DashboardData> {
+    // Execute all queries in parallel for performance
+    const [territories, topPerformers, pipeline, trends] = await Promise.all([
+      this.getTerritoryPerformance(),
+      this.getTopPerformers(5),
+      this.getPipelineSnapshot(),
+      this.getTrendData(6) // 6 months
+    ]);
+    
+    return {
+      generated_at: new Date().toISOString(),
+      territories,
+      top_performers: topPerformers,
+      pipeline,
+      trends
+    };
+  }
+}
+```
+
+## Performance Optimization
+
+### Query Optimization
+
+- Use indexes on `metric_date`, `metric_type`, `rep_id`, and `territory_id`
+- Materialize latest metrics in a separate table for faster queries
+- Cache dashboard results with 60-second TTL
+- Use database views for complex aggregations
+
+### Data Freshness
+
+```sql
+-- Materialized view for latest metrics (refresh on insert)
+CREATE MATERIALIZED VIEW latest_metrics AS
+SELECT DISTINCT ON (rep_id, metric_type)
+    rep_id,
+    metric_type,
+    revenue,
+    quota,
+    metric_date
+FROM metrics
+ORDER BY rep_id, metric_type, metric_date DESC;
+
+-- Refresh trigger
+CREATE TRIGGER refresh_latest_metrics
+AFTER INSERT ON metrics
+FOR EACH STATEMENT
+EXECUTE FUNCTION refresh_materialized_view('latest_metrics');
+```
+
+## Success Metrics
+
+<CardGroup cols={2}>
+  <Card title="<1s Load Time" icon="bolt">
+    Dashboard loads in less than 1 second
+  </Card>
+  <Card title="Auto-Refresh" icon="arrows-rotate">
+    Reports refresh automatically every 60 seconds
+  </Card>
+  <Card title="Complete Coverage" icon="check-double">
+    All active territories and reps represented
+  </Card>
+  <Card title="Data Consistency" icon="equals">
+    Zero inconsistencies between detail and summary views
+  </Card>
+</CardGroup>
+
+## Best Practices
+
+### Data Aggregation
+
+- Always use the most recent data for real-time views
+- Handle NULL values gracefully in aggregations
+- Provide drill-down capability from summaries to details
+- Include data freshness indicators in all reports
+
+### Error Handling
+
+- Return partial data if some queries fail
+- Log all data inconsistencies for investigation
+- Provide fallback values for missing data
+- Include data quality metrics in responses
+
+## Related Agents
+
+<CardGroup cols={2}>
+  <Card title="Sales Data Extraction Agent" icon="file-excel" href="/agents/specialized/sales-data-extraction-agent">
+    Extracts sales metrics from Excel files
+  </Card>
+  <Card title="Report Distribution Agent" icon="paper-plane" href="/agents/specialized/report-distribution-agent">
+    Distributes consolidated reports to stakeholders
+  </Card>
+  <Card title="Data Analytics Reporter" icon="chart-line" href="/agents/specialized/data-analytics-reporter">
+    Performs advanced analytics on consolidated data
+  </Card>
+</CardGroup>

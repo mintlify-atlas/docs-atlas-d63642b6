@@ -1,0 +1,619 @@
+---
+title: Enterprise Feature Development
+description: Build enterprise-grade features with compliance, security, and quality gates
+---
+
+# Enterprise Feature Development
+
+Develop a major enterprise feature with full compliance, security, and quality requirements in 6-12 weeks.
+
+## Scenario
+
+You're adding a major feature to an existing enterprise product. Compliance, security, and quality gates are non-negotiable. Multiple stakeholders need alignment. The feature must integrate seamlessly with existing systems.
+
+## Success Criteria
+
+<CardGroup cols={2}>
+  <Card title="Quality" icon="shield-check">
+    100% spec compliance
+  </Card>
+  <Card title="Security" icon="lock">
+    Zero critical vulnerabilities
+  </Card>
+  <Card title="Performance" icon="gauge-high">
+    P95 < 200ms response time
+  </Card>
+  <Card title="Compliance" icon="scale-balanced">
+    All regulatory requirements met
+  </Card>
+</CardGroup>
+
+## Agent Roster
+
+### Core Team
+
+<Tabs>
+  <Tab title="Coordination">
+    | Agent | Role |
+    |-------|------|
+    | Agents Orchestrator | Pipeline controller |
+    | Project Shepherd | Cross-functional coordination |
+    | Senior Project Manager | Spec-to-task conversion |
+    | Sprint Prioritizer | Backlog management |
+  </Tab>
+  
+  <Tab title="Design & Development">
+    | Agent | Role |
+    |-------|------|
+    | UX Architect | Technical foundation |
+    | UX Researcher | User validation |
+    | UI Designer | Component design |
+    | Frontend Developer | UI implementation |
+    | Backend Architect | API and system integration |
+    | Senior Developer | Complex implementation |
+  </Tab>
+  
+  <Tab title="DevOps & QA">
+    | Agent | Role |
+    |-------|------|
+    | DevOps Automator | CI/CD and deployment |
+    | Evidence Collector | Visual QA |
+    | API Tester | Endpoint validation |
+    | Reality Checker | Final quality gate |
+    | Performance Benchmarker | Load testing |
+  </Tab>
+</Tabs>
+
+### Compliance & Governance
+
+| Agent | Role | Involvement |
+|-------|------|-------------|
+| Legal Compliance Checker | Regulatory compliance | Day 1, ongoing |
+| Brand Guardian | Brand consistency | Weekly reviews |
+| Finance Tracker | Budget tracking | Bi-weekly |
+| Executive Summary Generator | Stakeholder reporting | Bi-weekly |
+
+### Quality Assurance
+
+| Agent | Role | Timing |
+|-------|------|--------|
+| Test Results Analyzer | Quality metrics | Weekly |
+| Workflow Optimizer | Process improvement | Sprint retrospectives |
+| Experiment Tracker | A/B testing | Implementation phase |
+
+## Execution Plan
+
+### Phase 1: Requirements & Architecture (Week 1-2)
+
+<Steps>
+  <Step title="Week 1: Stakeholder Alignment">
+    **Agents Active**: Project Shepherd, UX Researcher, Legal Compliance Checker, Senior Project Manager, Finance Tracker
+    
+    **Activities**:
+    - **Project Shepherd**: Stakeholder analysis + communication plan
+    - **UX Researcher**: User research on feature need
+    - **Legal Compliance Checker**: Compliance requirements scan
+    - **Senior Project Manager**: Spec-to-task conversion
+    - **Finance Tracker**: Budget framework
+    
+    **Deliverables**:
+    - Stakeholder map and communication plan
+    - User research findings
+    - Compliance requirements document
+    - Task backlog with estimates
+    - Budget allocation
+    
+    **Stakeholder Communication**: Kick-off presentations for all stakeholder groups
+  </Step>
+  
+  <Step title="Week 2: Technical Architecture">
+    **Agents Active**: UX Architect, Backend Architect, UI Designer, Sprint Prioritizer, Brand Guardian
+    
+    **Activities**:
+    - **UX Architect**: UX foundation + component architecture
+    - **Backend Architect**: System architecture + integration plan
+    - **UI Designer**: Component design + design system updates
+    - **Sprint Prioritizer**: RICE-scored backlog
+    - **Brand Guardian**: Brand impact assessment
+    
+    **Quality Gate**: Architecture Review (Project Shepherd + Reality Checker)
+    
+    **Deliverables**:
+    - UX architecture document
+    - System architecture diagram
+    - API integration specification
+    - Component designs
+    - Prioritized sprint backlog
+    - Brand consistency guidelines
+    
+    **Gate Criteria**:
+    - All stakeholders approve architecture
+    - Technical feasibility confirmed
+    - Compliance requirements addressed
+    - Budget validated
+  </Step>
+</Steps>
+
+### Phase 2: Foundation (Week 3)
+
+<CodeGroup>
+```markdown Foundation Setup
+## Week 3 Activities
+
+### DevOps Setup
+**Agent**: DevOps Automator
+- Feature branch pipeline
+- Feature flags implementation
+- Environment provisioning
+- Deployment procedures
+
+### Frontend Foundation
+**Agent**: Frontend Developer
+- Component scaffolding
+- Design system integration
+- State management setup
+- Test infrastructure
+
+### Backend Foundation  
+**Agent**: Backend Architect
+- API scaffold
+- Database migrations
+- Integration endpoints
+- Authentication/authorization
+
+### Infrastructure
+**Agent**: Infrastructure Maintainer
+- Staging environment setup
+- Monitoring configuration
+- Performance baseline
+- Security hardening
+```
+
+```markdown Quality Gate
+## Foundation Verification
+
+**Verification Agent**: Evidence Collector
+
+### Checklist
+- [ ] CI/CD pipeline operational
+- [ ] Feature flags working
+- [ ] Development environment stable
+- [ ] Component library initialized
+- [ ] API scaffold functional
+- [ ] Database migrations tested
+- [ ] Staging environment ready
+- [ ] Monitoring active
+
+### Pass Criteria
+- All infrastructure operational
+- No blocking issues
+- Team can start development
+
+### Deliverables
+- Foundation verification report
+- Screenshot evidence
+- Performance baseline metrics
+```
+</CodeGroup>
+
+### Phase 3: Build (Week 4-9)
+
+<Tabs>
+  <Tab title="Sprint Structure (2-week sprints)">
+    ```markdown
+    ## Sprint 1 (Week 4-5)
+    
+    ### Daily Dev↔QA Loop
+    **Morning**: Task assignment and development
+    - Frontend Developer: UI implementation (task by task)
+    - Backend Architect: API implementation (task by task)
+    - Senior Developer: Complex/premium features
+    
+    **Afternoon**: QA and verification
+    - Evidence Collector: QA every task (screenshots)
+    - API Tester: Endpoint validation every API task
+    - Issues found: Document and return to dev
+    
+    **Evening**: Coordination
+    - Agents Orchestrator: Pipeline status update
+    - Project Shepherd: Stakeholder communication
+    - Sprint Prioritizer: Adjust priorities if needed
+    
+    ### Weekly Activities
+    **Mid-Sprint**:
+    - Experiment Tracker: A/B test setup for key features
+    - Test Results Analyzer: Quality metrics dashboard
+    
+    **End of Sprint**:
+    - Project Shepherd: Stakeholder status update
+    - Executive Summary Generator: Executive briefing
+    - Finance Tracker: Budget tracking report
+    - Sprint retrospective with Workflow Optimizer
+    
+    ### Key Features
+    - Core feature implementation (30%)
+    - Integration with existing systems
+    - Initial A/B test variants
+    
+    ### Quality Metrics
+    - Code coverage > 75%
+    - Dev↔QA loop: Average 2-3 iterations per task
+    - Lighthouse score > 88
+    - API response time P95 < 250ms
+    ```
+  </Tab>
+  
+  <Tab title="Sprint 2-3 (Week 6-9)">
+    ```markdown
+    ## Continued Development
+    
+    ### Agent Coordination
+    **Development Team**:
+    - Frontend Developer: UI features (50% → 100%)
+    - Backend Architect: Business logic completion
+    - Senior Developer: Advanced/complex features
+    
+    **QA Team**:
+    - Evidence Collector: Continuous QA
+    - API Tester: API regression suite
+    - Performance Benchmarker: Incremental perf testing
+    
+    **Supporting Agents**:
+    - DevOps Automator: Infrastructure optimization
+    - Legal Compliance Checker: Ongoing compliance review
+    - Brand Guardian: Brand consistency monitoring
+    
+    ### Bi-Weekly Cadence
+    **Week 6, 8**:
+    - Sprint planning (Sprint Prioritizer)
+    - Architecture adjustments (Backend Architect)
+    - Design refinements (UI Designer)
+    
+    **Week 7, 9**:
+    - Mid-sprint stakeholder update (Project Shepherd)
+    - Executive briefing (Executive Summary Generator)
+    - Budget checkpoint (Finance Tracker)
+    
+    ### Progressive Quality Standards
+    **Sprint 2 Targets**:
+    - Code coverage > 78%
+    - Lighthouse score > 90
+    - API P95 < 225ms
+    - Accessibility: WCAG 2.1 AA baseline
+    
+    **Sprint 3 Targets**:
+    - Code coverage > 80%
+    - Lighthouse score > 92
+    - API P95 < 200ms
+    - Accessibility: WCAG 2.1 AA complete
+    - Security: No high/critical findings
+    ```
+  </Tab>
+</Tabs>
+
+### Phase 4: Hardening (Week 10-11)
+
+<Steps>
+  <Step title="Week 10: Evidence Collection">
+    **Focus**: Comprehensive testing and validation
+    
+    **Agents Active**:
+    - Evidence Collector: Full screenshot suite
+    - API Tester: Complete regression suite
+    - Performance Benchmarker: Load test at 10x traffic
+    - Legal Compliance Checker: Final compliance audit
+    - Test Results Analyzer: Quality metrics dashboard
+    - Infrastructure Maintainer: Production readiness
+    
+    **Deliverables**:
+    
+    <AccordionGroup>
+      <Accordion title="Visual QA Report">
+        **Agent**: Evidence Collector
+        
+        - 200+ screenshots across all features
+        - Desktop, tablet, mobile views
+        - All interactive states documented
+        - User journey evidence (10+ flows)
+        - Cross-browser testing (Chrome, Firefox, Safari, Edge)
+        - Accessibility testing with screen readers
+      </Accordion>
+      
+      <Accordion title="API Testing Report">
+        **Agent**: API Tester
+        
+        - Complete endpoint regression suite
+        - Integration testing with existing systems
+        - Error handling verification
+        - Rate limiting tests
+        - Security vulnerability scan
+        - Load testing results
+      </Accordion>
+      
+      <Accordion title="Performance Report">
+        **Agent**: Performance Benchmarker
+        
+        - Load test: 10x current traffic
+        - Stress test: Breaking point analysis
+        - API response times (P50, P95, P99)
+        - Database query performance
+        - Memory and CPU utilization
+        - Bottleneck identification
+      </Accordion>
+      
+      <Accordion title="Compliance Audit">
+        **Agent**: Legal Compliance Checker
+        
+        - Regulatory requirements checklist
+        - Data privacy compliance (GDPR, CCPA)
+        - Security standards (SOC 2, ISO 27001)
+        - Audit trail verification
+        - Documentation completeness
+        - Risk assessment
+      </Accordion>
+      
+      <Accordion title="Quality Dashboard">
+        **Agent**: Test Results Analyzer
+        
+        - Code coverage: 82% (target: >80%)
+        - Test pass rate: 98.7%
+        - Lighthouse scores: Avg 93
+        - Accessibility: WCAG 2.1 AA compliant
+        - Security: 0 critical, 2 medium findings
+        - Performance: P95 < 200ms
+      </Accordion>
+    </AccordionGroup>
+  </Step>
+  
+  <Step title="Week 11: Final Judgment">
+    **Focus**: Reality check and production readiness
+    
+    **Primary Agent**: Reality Checker
+    
+    **Process**:
+    1. **Integration Testing** (Days 1-2)
+       - Complete user journey validation
+       - Cross-system integration verification
+       - Edge case and error scenario testing
+       - Performance under load validation
+    
+    2. **Evidence Review** (Day 3)
+       - Review all QA findings
+       - Cross-reference with specs
+       - Verify fixes for known issues
+       - Challenge optimistic assessments
+    
+    3. **Assessment** (Day 4)
+       - Reality Checker default: NEEDS WORK
+       - Evidence-based evaluation
+       - Honest quality rating (B-/B/B+)
+       - Specific issues documented
+    
+    4. **Decision** (Day 5)
+       - **READY**: Proceed to rollout
+       - **NEEDS WORK**: Fix cycle (2-3 days), re-verify
+    
+    **Typical Outcome**: First assessment results in NEEDS WORK with 3-5 critical issues requiring fixes
+    
+    **Fix Cycle**:
+    - 2-3 days for critical fixes
+    - Evidence Collector re-verification
+    - Reality Checker re-assessment
+    - Executive Summary Generator: Go/No-Go recommendation
+  </Step>
+</Steps>
+
+### Phase 5: Rollout (Week 12)
+
+<CodeGroup>
+```markdown Canary Deployment
+## Week 12: Gradual Rollout
+
+### Day 1-2: 5% Canary
+**Agent**: DevOps Automator
+- Deploy to 5% of users
+- Monitor error rates
+- Track performance metrics
+- Watch for anomalies
+
+**Agent**: Infrastructure Maintainer
+- Real-time monitoring
+- Alert response
+- Performance tracking
+
+**Agent**: Analytics Reporter
+- Feature adoption tracking
+- User behavior analysis
+- Error rate monitoring
+
+**Decision Point**: Proceed if:
+- Error rate < 0.5%
+- Performance meets targets
+- No critical user reports
+
+### Day 3-4: 25% Rollout
+- Expand to 25% of users
+- Continue monitoring
+- Adjust based on feedback
+
+### Day 5: 100% Rollout
+- Full deployment
+- Ongoing monitoring
+- Support team ready
+```
+
+```markdown Post-Launch
+## Days 1-7: Intensive Monitoring
+
+### Daily Activities
+**Infrastructure Maintainer**:
+- System health monitoring
+- Performance tracking
+- Issue response
+
+**Analytics Reporter**:
+- Feature adoption metrics
+- User behavior analysis
+- Conversion tracking
+
+**Support Responder**:
+- User support for new feature
+- Issue escalation
+- Feedback collection
+
+**Feedback Synthesizer**:
+- Early feedback collection
+- Pattern identification
+- Priority recommendations
+
+### Week 1 Report
+**Executive Summary Generator**:
+- Launch metrics
+- User adoption
+- Issues encountered
+- Lessons learned
+```
+</CodeGroup>
+
+## Stakeholder Communication
+
+### Communication Cadence
+
+| Audience | Frequency | Agent | Format |
+|----------|-----------|-------|--------|
+| Executive sponsors | Bi-weekly | Executive Summary Generator | SCQA summary (≤500 words) |
+| Product team | Weekly | Project Shepherd | Status report + demo |
+| Engineering team | Daily | Agents Orchestrator | Pipeline status |
+| Compliance team | Monthly | Legal Compliance Checker | Compliance status |
+| Finance | Monthly | Finance Tracker | Budget report |
+
+### Executive Briefing Template
+
+```markdown
+# Feature Development Executive Brief
+## [Date]
+
+### Situation
+[Current state: What phase are we in? What's been accomplished?]
+
+### Complication
+[Challenges: What issues have we encountered? What's at risk?]
+
+### Question
+[What needs to be decided or understood by executives?]
+
+### Answer
+[Recommendation and path forward]
+
+## Key Metrics
+- Timeline: [On track / X days behind]
+- Budget: [% utilized]
+- Quality: [Current state vs. targets]
+- Risk level: [Low / Medium / High]
+
+## Next Milestone
+[What's coming next and when]
+
+## Action Required
+[What executives need to do, if anything]
+```
+
+## Quality Requirements
+
+<CardGroup cols={2}>
+  <Card title="Code Quality" icon="code">
+    - Coverage > 80%
+    - All tests passing
+    - No critical code smells
+    - Documentation complete
+  </Card>
+  
+  <Card title="Performance" icon="gauge-high">
+    - P95 < 200ms API response
+    - Lighthouse > 90
+    - Load: 10x current traffic
+    - Memory: No leaks detected
+  </Card>
+  
+  <Card title="Accessibility" icon="universal-access">
+    - WCAG 2.1 AA compliant
+    - Screen reader compatible
+    - Keyboard navigable
+    - Color contrast compliant
+  </Card>
+  
+  <Card title="Security" icon="shield">
+    - Zero critical vulnerabilities
+    - Auth/authz properly implemented
+    - Data encryption in transit/rest
+    - Audit logging complete
+  </Card>
+  
+  <Card title="Compliance" icon="scale-balanced">
+    - All regulatory requirements met
+    - Privacy policy updated
+    - Terms of service current
+    - Audit trail complete
+  </Card>
+  
+  <Card title="Brand" icon="palette">
+    - 95%+ brand adherence
+    - Design system compliance
+    - Voice and tone consistent
+    - Visual identity maintained
+  </Card>
+</CardGroup>
+
+## Risk Management
+
+| Risk | Probability | Impact | Mitigation | Owner |
+|------|------------|--------|-----------|-------|
+| Integration complexity | High | High | Early integration testing, API Tester in every sprint | Backend Architect |
+| Scope creep | Medium | High | Sprint Prioritizer enforces MoSCoW, Project Shepherd manages changes | Sprint Prioritizer |
+| Compliance issues | Medium | Critical | Legal Compliance Checker involved from Day 1 | Legal Compliance Checker |
+| Performance regression | Medium | High | Performance Benchmarker tests every sprint | Performance Benchmarker |
+| Stakeholder misalignment | Low | High | Bi-weekly executive briefings, Project Shepherd coordination | Project Shepherd |
+
+## Activation Prompt
+
+```
+Activate Agents Orchestrator in NEXUS-Sprint mode for enterprise feature development.
+
+Project: [FEATURE NAME]
+Timeline: 12 weeks
+Compliance: [GDPR / SOC 2 / HIPAA / Other]
+
+Feature: [DETAILED DESCRIPTION]
+Integration Points: [EXISTING SYSTEMS]
+Stakeholders: [KEY STAKEHOLDERS]
+
+Team:
+- Coordination: Agents Orchestrator, Project Shepherd, Senior Project Manager
+- Design: UX Architect, UX Researcher, UI Designer
+- Engineering: Frontend Developer, Backend Architect, Senior Developer
+- DevOps: DevOps Automator, Infrastructure Maintainer
+- QA: Evidence Collector, API Tester, Reality Checker, Performance Benchmarker
+- Governance: Legal Compliance Checker, Brand Guardian, Finance Tracker
+
+Begin with stakeholder alignment and requirements gathering.
+Bi-weekly executive briefings required.
+Reality Checker approval mandatory before production.
+Gradual rollout (5% → 25% → 100%) required.
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Startup MVP" icon="rocket" href="/use-cases/startup-mvp">
+    Build MVPs quickly
+  </Card>
+  <Card title="Marketing Campaign" icon="megaphone" href="/use-cases/marketing-campaign">
+    Launch marketing campaigns
+  </Card>
+  <Card title="Agent Workflows" icon="diagram-project" href="/concepts/workflows">
+    Understand processes
+  </Card>
+  <Card title="Quick Start" icon="bolt" href="/quickstart">
+    Start using agents
+  </Card>
+</CardGroup>

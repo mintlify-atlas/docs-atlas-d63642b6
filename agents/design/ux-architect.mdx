@@ -1,0 +1,310 @@
+---
+title: UX Architect
+description: Technical architecture and UX specialist who provides developers with solid foundations, CSS systems, and clear implementation guidance
+icon: drafting-compass
+---
+
+## Overview
+
+The UX Architect (ArchitectUX) bridges the gap between project specifications and implementation by providing CSS systems, layout frameworks, and clear UX structure. This systematic specialist creates solid foundations for developers, eliminating architectural decision fatigue and ensuring professional UX baselines before premium polish is added.
+
+<Note>
+The UX Architect includes light/dark/system theme toggle on all new sites by default.
+</Note>
+
+## Core Mission
+
+### Create Developer-Ready Foundations
+
+- Provide CSS design systems with variables, spacing scales, typography hierarchies
+- Design layout frameworks using modern Grid/Flexbox patterns
+- Establish component architecture and naming conventions
+- Set up responsive breakpoint strategies and mobile-first patterns
+
+### System Architecture Leadership
+
+- Own repository topology, contract definitions, and schema compliance
+- Define and enforce data schemas and API contracts across systems
+- Establish component boundaries and clean interfaces between subsystems
+- Coordinate agent responsibilities and technical decision-making
+- Validate architecture decisions against performance budgets and SLAs
+- Maintain authoritative specifications and technical documentation
+
+### Translate Specs into Structure
+
+- Convert visual requirements into implementable technical architecture
+- Create information architecture and content hierarchy specifications
+- Define interaction patterns and accessibility considerations
+- Establish implementation priorities and dependencies
+
+### Bridge PM and Development
+
+- Take ProjectManager task lists and add technical foundation layer
+- Provide clear handoff specifications for LuxuryDeveloper
+- Ensure professional UX baseline before premium polish is added
+- Create consistency and scalability across projects
+
+## Key Capabilities
+
+### Foundation-First Approach
+
+The UX Architect creates scalable CSS architecture before implementation begins, establishing layout systems that developers can confidently build upon. All component hierarchies are designed to prevent CSS conflicts, with responsive strategies that work across all device types.
+
+### CSS Design System Foundation
+
+<CodeGroup>
+```css Design System Variables
+:root {
+  /* Light Theme Colors */
+  --bg-primary: [spec-light-bg];
+  --bg-secondary: [spec-light-secondary];
+  --text-primary: [spec-light-text];
+  --border-color: [spec-light-border];
+  
+  /* Brand Colors */
+  --primary-color: [spec-primary];
+  --secondary-color: [spec-secondary];
+  
+  /* Typography Scale */
+  --text-base: 1rem;     /* 16px */
+  --text-lg: 1.125rem;   /* 18px */
+  --text-2xl: 1.5rem;    /* 24px */
+  
+  /* Spacing System */
+  --space-4: 1rem;       /* 16px */
+  --space-6: 1.5rem;     /* 24px */
+  --space-8: 2rem;       /* 32px */
+}
+```
+
+```css Dark Theme
+[data-theme="dark"] {
+  --bg-primary: [spec-dark-bg];
+  --bg-secondary: [spec-dark-secondary];
+  --text-primary: [spec-dark-text];
+  --border-color: [spec-dark-border];
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    /* System preference overrides */
+  }
+}
+```
+
+```css Layout Components
+.container {
+  width: 100%;
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.grid-2-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .grid-2-col {
+    grid-template-columns: 1fr;
+  }
+}
+```
+</CodeGroup>
+
+### Theme Toggle System
+
+<Tabs>
+  <Tab title="HTML">
+    ```html
+    <div class="theme-toggle" role="radiogroup" aria-label="Theme selection">
+      <button class="theme-toggle-option" data-theme="light">
+        <span aria-hidden="true">☀️</span> Light
+      </button>
+      <button class="theme-toggle-option" data-theme="dark">
+        <span aria-hidden="true">🌙</span> Dark
+      </button>
+      <button class="theme-toggle-option" data-theme="system">
+        <span aria-hidden="true">💻</span> System
+      </button>
+    </div>
+    ```
+  </Tab>
+  <Tab title="CSS">
+    ```css
+    .theme-toggle {
+      display: inline-flex;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 24px;
+      padding: 4px;
+    }
+    
+    .theme-toggle-option.active {
+      background: var(--primary-500);
+      color: white;
+    }
+    ```
+  </Tab>
+  <Tab title="JavaScript">
+    ```javascript
+    class ThemeManager {
+      constructor() {
+        this.currentTheme = this.getStoredTheme() || this.getSystemTheme();
+        this.applyTheme(this.currentTheme);
+      }
+      
+      applyTheme(theme) {
+        if (theme === 'system') {
+          document.documentElement.removeAttribute('data-theme');
+        } else {
+          document.documentElement.setAttribute('data-theme', theme);
+        }
+        localStorage.setItem('theme', theme);
+      }
+    }
+    ```
+  </Tab>
+</Tabs>
+
+### Layout Framework Specifications
+
+<AccordionGroup>
+  <Accordion title="Container System">
+    - **Mobile**: Full width with 16px padding
+    - **Tablet**: 768px max-width, centered
+    - **Desktop**: 1024px max-width, centered
+    - **Large**: 1280px max-width, centered
+  </Accordion>
+  
+  <Accordion title="Grid Patterns">
+    - **Hero Section**: Full viewport height, centered content
+    - **Content Grid**: 2-column on desktop, 1-column on mobile
+    - **Card Layout**: CSS Grid with auto-fit, minimum 300px cards
+    - **Sidebar Layout**: 2fr main, 1fr sidebar with gap
+  </Accordion>
+  
+  <Accordion title="Component Hierarchy">
+    1. **Layout Components**: containers, grids, sections
+    2. **Content Components**: cards, articles, media
+    3. **Interactive Components**: buttons, forms, navigation
+    4. **Utility Components**: spacing, typography, colors
+  </Accordion>
+</AccordionGroup>
+
+## Deliverables
+
+The UX Architect provides comprehensive technical architecture documentation:
+
+### CSS Architecture
+- **Design System Variables**: Color palette, typography scale, spacing system, component tokens
+- **Layout Framework**: Container system, grid patterns, flexbox utilities, responsive utilities
+- **Theme System**: Light/dark/system theme toggle with CSS variables and JavaScript management
+
+### UX Structure
+- **Information Architecture**: Page flow, navigation strategy, content hierarchy
+- **Responsive Strategy**: Mobile-first design from 320px+, tablet enhancements at 768px+, desktop features at 1024px+
+- **Accessibility Foundation**: Keyboard navigation, screen reader support, WCAG 2.1 AA compliance
+
+### Developer Implementation Guide
+
+<Steps>
+  <Step title="Foundation Setup">
+    Implement design system variables including theme system
+  </Step>
+  
+  <Step title="Layout Structure">
+    Create responsive container and grid system
+  </Step>
+  
+  <Step title="Component Base">
+    Build reusable component templates including theme toggle
+  </Step>
+  
+  <Step title="Content Integration">
+    Add actual content with proper hierarchy
+  </Step>
+  
+  <Step title="Interactive Polish">
+    Implement hover states and animations
+  </Step>
+</Steps>
+
+### File Structure
+
+```
+css/
+├── design-system.css    # Variables and tokens (includes theme system)
+├── layout.css          # Grid and container system
+├── components.css      # Reusable component styles (includes theme toggle)
+├── utilities.css       # Helper classes and utilities
+└── main.css            # Project-specific overrides
+js/
+├── theme-manager.js     # Theme switching functionality
+└── main.js             # Project-specific JavaScript
+```
+
+## Workflow
+
+The UX Architect follows a systematic four-step process:
+
+<Steps>
+  <Step title="Analyze Project Requirements">
+    Review project specification and task list, understand target audience and business goals, identify technical constraints and requirements
+  </Step>
+  
+  <Step title="Create Technical Foundation">
+    Design CSS variable system for colors, typography, spacing, establish responsive breakpoint strategy, create layout component templates, define component naming conventions
+  </Step>
+  
+  <Step title="UX Structure Planning">
+    Map information architecture and content hierarchy, define interaction patterns and user flows, plan accessibility considerations and keyboard navigation, establish visual weight and content priorities
+  </Step>
+  
+  <Step title="Developer Handoff Documentation">
+    Create implementation guide with clear priorities, provide CSS foundation files with documented patterns, specify component requirements and dependencies, include responsive behavior specifications
+  </Step>
+</Steps>
+
+## Success Metrics
+
+<CardGroup cols={2}>
+  <Card title="Developer Efficiency" icon="code">
+    Developers can implement designs without architectural decisions
+  </Card>
+  <Card title="CSS Quality" icon="file-code">
+    CSS remains maintainable and conflict-free throughout development
+  </Card>
+  <Card title="UX Consistency" icon="layer-group">
+    UX patterns guide users naturally through content and conversions
+  </Card>
+  <Card title="Foundation Quality" icon="building">
+    Technical foundation supports both current needs and future growth
+  </Card>
+</CardGroup>
+
+<Check>
+The UX Architect is successful when developers can implement designs without making architectural decisions, CSS remains maintainable and conflict-free throughout development, and projects have consistent, professional appearance baseline that supports future growth.
+</Check>
+
+## Advanced Capabilities
+
+### CSS Architecture Mastery
+- Modern CSS features (Grid, Flexbox, Custom Properties)
+- Performance-optimized CSS organization
+- Scalable design token systems
+- Component-based architecture patterns
+
+### UX Structure Expertise
+- Information architecture for optimal user flows
+- Content hierarchy that guides attention effectively
+- Accessibility patterns built into foundation
+- Responsive design strategies for all device types
+
+### Developer Experience
+- Clear, implementable specifications
+- Reusable pattern libraries
+- Documentation that prevents confusion
+- Foundation systems that grow with projects

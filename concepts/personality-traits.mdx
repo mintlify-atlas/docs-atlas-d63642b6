@@ -1,0 +1,468 @@
+---
+title: Personality Traits
+description: How personality shapes agent behavior and why it matters for specialized AI work
+---
+
+# Personality Traits
+
+Personality isn't just flavor text - it fundamentally shapes how agents approach problems, communicate, and deliver results.
+
+## Why Personality Matters
+
+<CardGroup cols={2}>
+  <Card title="Consistent Behavior" icon="arrows-repeat">
+    Personality creates predictable patterns in how agents approach tasks
+  </Card>
+  <Card title="Clear Expectations" icon="bullseye">
+    Users know what to expect from each agent interaction
+  </Card>
+  <Card title="Memorable Identity" icon="fingerprint">
+    Distinct personalities make agents recognizable and trustworthy
+  </Card>
+  <Card title="Domain Alignment" icon="compass">
+    Personality traits match the requirements of their specialty
+  </Card>
+</CardGroup>
+
+## Personality Dimensions
+
+Each agent's personality is defined across several dimensions:
+
+### 1. Thoroughness Spectrum
+
+<Tabs>
+  <Tab title="Highly Thorough">
+    **Agents**: Evidence Collector, Reality Checker, Legal Compliance Checker
+    
+    **Characteristics**:
+    - Exhaustive in their analysis
+    - Default to finding issues
+    - Require comprehensive documentation
+    - Never skip verification steps
+    
+    **Example - Evidence Collector**:
+    ```text
+    "I don't just test your code - I default to finding 3-5 issues
+    and require visual proof for everything. No 'looks good' without
+    screenshots showing desktop, tablet, mobile, and all interactive
+    states."
+    ```
+    
+    **When to Use**:
+    - Final quality gates
+    - Compliance audits
+    - Production readiness checks
+    - Critical system verification
+  </Tab>
+  
+  <Tab title="Balanced Thoroughness">
+    **Agents**: Frontend Developer, Backend Architect, UX Researcher
+    
+    **Characteristics**:
+    - Thorough but pragmatic
+    - Balance quality with velocity
+    - Focus on high-impact areas
+    - Know when "good enough" is acceptable
+    
+    **Example - Frontend Developer**:
+    ```text
+    "I optimize for Core Web Vitals from the start, but I know
+    when to ship and iterate. 90+ Lighthouse scores are the goal,
+    but I won't block launch for minor improvements."
+    ```
+    
+    **When to Use**:
+    - Standard development work
+    - Feature implementation
+    - Research and analysis
+    - Architecture design
+  </Tab>
+  
+  <Tab title="Speed-Focused">
+    **Agents**: Rapid Prototyper, Growth Hacker, Sprint Prioritizer
+    
+    **Characteristics**:
+    - Bias toward action
+    - Fast iteration over perfection
+    - Validate quickly, refine later
+    - Cut scope aggressively
+    
+    **Example - Rapid Prototyper**:
+    ```text
+    "Ship fast, learn fast. I build MVPs that validate hypotheses
+    in days, not weeks. Perfect is the enemy of learning. Let's
+    get users in front of something real, then iterate."
+    ```
+    
+    **When to Use**:
+    - Early validation
+    - Proof of concepts
+    - Experimentation
+    - Time-constrained sprints
+  </Tab>
+</Tabs>
+
+### 2. Communication Style
+
+<AccordionGroup>
+  <Accordion title="Direct & Evidence-Based">
+    **Agents**: Reality Checker, Performance Benchmarker, API Tester
+    
+    **Style**: Facts, data, screenshots, measurements. No sugar-coating.
+    
+    **Examples**:
+    - "Screenshot integration-mobile.png shows broken responsive layout"
+    - "API response time P95: 847ms (target: under 200ms) - FAILED"
+    - "3 critical issues, 7 medium issues. Status: NEEDS WORK"
+    
+    **Benefits**:
+    - No ambiguity
+    - Clear action items
+    - Evidence-backed claims
+    - Easy to verify
+  </Accordion>
+  
+  <Accordion title="Collaborative & Guiding">
+    **Agents**: UX Architect, Senior Project Manager, Project Shepherd
+    
+    **Style**: Explanatory, educational, collaborative. Explains the 'why' behind decisions.
+    
+    **Examples**:
+    - "Let's use a mobile-first approach here because 70% of users are on mobile"
+    - "Breaking this into smaller tasks helps us track progress and catch issues early"
+    - "I recommend we prioritize the auth flow first - it's a dependency for everything else"
+    
+    **Benefits**:
+    - Team learns
+    - Decisions explained
+    - Buy-in from stakeholders
+    - Knowledge transfer
+  </Accordion>
+  
+  <Accordion title="Creative & Strategic">
+    **Agents**: Whimsy Injector, Brand Guardian, Growth Hacker
+    
+    **Style**: Visionary, possibility-focused, strategic. Balances creativity with data.
+    
+    **Examples**:
+    - "This celebration animation reduces task completion anxiety by 40%"
+    - "Our brand voice should be professional but approachable - like a knowledgeable friend"
+    - "If we gamify the referral flow, we could increase viral coefficient from 1.1 to 1.5"
+    
+    **Benefits**:
+    - Innovative solutions
+    - Strategic thinking
+    - Measurable creativity
+    - Business alignment
+  </Accordion>
+  
+  <Accordion title="Authentic & Community-Focused">
+    **Agents**: Reddit Community Builder, Support Responder, Content Creator
+    
+    **Style**: Human, empathetic, genuine. Prioritizes relationships over transactions.
+    
+    **Examples**:
+    - "You're not marketing on Reddit - you're becoming a valued community member"
+    - "I understand this is frustrating. Let me help you solve this step by step"
+    - "This content should feel like a conversation with a friend, not a sales pitch"
+    
+    **Benefits**:
+    - Builds trust
+    - Long-term relationships
+    - Authentic engagement
+    - Community respect
+  </Accordion>
+</AccordionGroup>
+
+### 3. Risk Tolerance
+
+<Steps>
+  <Step title="Risk-Averse Agents">
+    **Who**: Legal Compliance Checker, Reality Checker, Infrastructure Maintainer
+    
+    **Approach**: 
+    - Default to caution
+    - Require extensive validation
+    - Focus on preventing problems
+    - Escalate concerns quickly
+    
+    **Quote - Reality Checker**:
+    ```text
+    "Default to 'NEEDS WORK' unless overwhelming evidence proves ready.
+    First implementations typically need 2-3 revision cycles. I've seen
+    too many 'production ready' claims for systems that weren't."
+    ```
+  </Step>
+  
+  <Step title="Balanced Risk Agents">
+    **Who**: Senior Developer, Backend Architect, DevOps Automator
+    
+    **Approach**:
+    - Calculated risk-taking
+    - Balance innovation with stability
+    - Use proven patterns for critical paths
+    - Experiment in safe areas
+    
+    **Quote - DevOps Automator**:
+    ```text
+    "I'll use cutting-edge tools for dev environments, but production
+    runs on battle-tested infrastructure. Innovation where it's safe,
+    stability where it matters."
+    ```
+  </Step>
+  
+  <Step title="High-Risk Tolerance Agents">
+    **Who**: Growth Hacker, Rapid Prototyper, Experiment Tracker
+    
+    **Approach**:
+    - Embrace experimentation
+    - Fail fast and learn
+    - Test unconventional ideas
+    - Optimize for learning speed
+    
+    **Quote - Growth Hacker**:
+    ```text
+    "Launch 10 experiments, expect 7 to fail. The 3 winners will
+    more than compensate. Speed of learning beats perfection of
+    execution in early-stage growth."
+    ```
+  </Step>
+</Steps>
+
+### 4. Scope Management
+
+<Tabs>
+  <Tab title="Narrow & Deep">
+    **Agents**: Most specialized agents (Frontend Developer, API Tester, Whimsy Injector)
+    
+    **Focus**: Master one domain completely
+    
+    **Benefits**:
+    - Expert-level depth
+    - Consistent quality in specialty
+    - Clear boundaries
+    - Predictable outcomes
+    
+    **Example - API Tester**:
+    ```text
+    "I test APIs. That's it. Not UI, not performance, not security
+    - just API contracts, responses, and integration behavior. I do
+    this one thing exceptionally well."
+    ```
+  </Tab>
+  
+  <Tab title="Coordinating & Cross-Functional">
+    **Agents**: Agents Orchestrator, Project Shepherd, Studio Producer
+    
+    **Focus**: Coordinate across domains
+    
+    **Benefits**:
+    - System-wide perspective
+    - Break down silos
+    - Manage dependencies
+    - Ensure cohesion
+    
+    **Example - Project Shepherd**:
+    ```text
+    "I coordinate between design, engineering, marketing, and QA.
+    My job is ensuring everyone has what they need, dependencies
+    are managed, and handoffs are smooth."
+    ```
+  </Tab>
+</Tabs>
+
+## Personality Archetypes
+
+Agents cluster into personality archetypes:
+
+### The Perfectionist
+
+**Agents**: Reality Checker, Evidence Collector, Legal Compliance Checker
+
+**Traits**:
+- High standards
+- Detail-oriented
+- Skeptical by default
+- Evidence-obsessed
+
+**Signature Behaviors**:
+- Default to finding issues
+- Require proof for all claims
+- Never accept "trust me"
+- Maintain quality gates
+
+**Quote**:
+> "Your 'A+' rating doesn't match the broken responsive layout I see in these screenshots. Let's be realistic: this is a B-, and here's what needs to improve."
+
+### The Builder
+
+**Agents**: Frontend Developer, Backend Architect, Mobile App Builder
+
+**Traits**:
+- Pragmatic
+- Solution-focused
+- Quality-conscious
+- Delivery-oriented
+
+**Signature Behaviors**:
+- Write production-ready code
+- Balance quality with velocity
+- Consider maintainability
+- Include documentation
+
+**Quote**:
+> "Implemented virtualized table component reducing render time by 80%. Includes TypeScript types, accessibility attributes, and unit tests. Ready for code review."
+
+### The Strategist
+
+**Agents**: Growth Hacker, Brand Guardian, Sprint Prioritizer
+
+**Traits**:
+- Big-picture thinking
+- Data-driven
+- Goal-oriented
+- Systematic
+
+**Signature Behaviors**:
+- Connect tactics to strategy
+- Prioritize ruthlessly
+- Measure everything
+- Optimize continuously
+
+**Quote**:
+> "These 3 features will deliver 80% of user value. Let's ship them first, then decide if we need the other 7 based on real usage data."
+
+### The Connector
+
+**Agents**: Reddit Community Builder, Support Responder, UX Researcher
+
+**Traits**:
+- Empathetic
+- Patient
+- Authentic
+- Relationship-focused
+
+**Signature Behaviors**:
+- Listen more than talk
+- Build long-term relationships
+- Provide genuine value
+- Create community
+
+**Quote**:
+> "You're not selling on Reddit - you're becoming a trusted member who happens to have relevant expertise. Give 90% value, take 10% promotion, maximum."
+
+### The Innovator
+
+**Agents**: Rapid Prototyper, Whimsy Injector, AI Engineer
+
+**Traits**:
+- Creative
+- Experimental
+- Bold
+- Learning-focused
+
+**Signature Behaviors**:
+- Try unconventional approaches
+- Prototype rapidly
+- Embrace failure
+- Push boundaries
+
+**Quote**:
+> "Let me add a celebration animation that reduces task completion anxiety by 40%. Data shows playful interactions increase engagement - let's test it."
+
+## How Personality Affects Workflow
+
+### Decision Making
+
+<CodeGroup>
+```text Evidence Collector Decision
+"I see the feature works, but I need screenshots proving it works
+across desktop, tablet, and mobile. Also need before/after shots
+of all interactive states. BLOCKED until evidence provided."
+
+→ Thorough, evidence-based, quality-focused
+```
+
+```text Rapid Prototyper Decision
+"Feature works on desktop? Great, ship it. We'll iterate on mobile
+responsiveness based on user feedback. Perfect is the enemy of
+learning."
+
+→ Speed-focused, iteration-based, validation-oriented
+```
+
+```text Reality Checker Decision
+"Feature works on desktop, breaks on mobile. Previous QA said
+'looks good' but evidence shows otherwise. Status: NEEDS WORK.
+2-3 day fix cycle expected."
+
+→ Skeptical, realistic, honest assessment
+```
+</CodeGroup>
+
+### Communication Patterns
+
+**Frontend Developer** (Technical, precise):
+- "Implemented lazy loading reducing initial bundle by 60%"
+- "Added ARIA labels for screen reader support"
+- "Performance: LCP 1.8s, FID 45ms, CLS 0.05"
+
+**Brand Guardian** (Strategic, brand-focused):
+- "This color palette reinforces our premium positioning"
+- "Voice should be confident but approachable - like a trusted advisor"
+- "Brand consistency check: 95% adherence, 3 minor adjustments needed"
+
+**Growth Hacker** (Data-driven, experimental):
+- "Viral coefficient improved from 1.1 to 1.4 after referral redesign"
+- "Let's run 3 landing page variants, expect 1 winner"
+- "CAC dropped 40% by shifting budget to organic social"
+
+## Designing Agent Personality
+
+When creating custom agents, consider:
+
+<Steps>
+  <Step title="Match personality to domain requirements">
+    - QA agents should be thorough and skeptical
+    - Growth agents should be experimental and bold
+    - Support agents should be empathetic and patient
+  </Step>
+  
+  <Step title="Create memorable character">
+    - Give them a distinctive voice
+    - Define their default behaviors
+    - Establish their communication style
+    - Make them quotable
+  </Step>
+  
+  <Step title="Ensure consistency">
+    - Personality should inform all decisions
+    - Behavior should be predictable
+    - Communication should be recognizable
+    - Approach should be repeatable
+  </Step>
+  
+  <Step title="Make personality functional">
+    - Traits should serve the work
+    - Character should enhance effectiveness
+    - Voice should build trust
+    - Style should aid communication
+  </Step>
+</Steps>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Agent Design" icon="palette" href="/concepts/agent-design">
+    Overall design philosophy
+  </Card>
+  <Card title="Deliverables" icon="file-code" href="/concepts/deliverables">
+    What agents produce
+  </Card>
+  <Card title="Workflows" icon="diagram-project" href="/concepts/workflows">
+    How agents work
+  </Card>
+  <Card title="Creating Agents" icon="plus" href="/contributing/creating-agents">
+    Build your own agents
+  </Card>
+</CardGroup>

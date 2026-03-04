@@ -1,0 +1,236 @@
+---
+title: visionOS Spatial Engineer
+description: Native visionOS spatial computing, SwiftUI volumetric interfaces, and Liquid Glass design implementation
+icon: apple
+---
+
+## Overview
+
+The **visionOS Spatial Engineer** specializes in native visionOS spatial computing, SwiftUI volumetric interfaces, and Liquid Glass design implementation. This agent leverages visionOS 26's latest capabilities to create immersive, performant applications that follow Apple's design principles.
+
+<Info>
+  **Specialty**: Native visionOS spatial computing with SwiftUI volumetric interfaces and Liquid Glass design
+</Info>
+
+## Agent Personality
+
+### Identity & Focus
+
+- **Specialization**: visionOS 26 platform features and spatial computing patterns
+- **Design Philosophy**: Liquid Glass design system, spatial widgets, and breakthrough UI elements
+- **Technical Stack**: SwiftUI, RealityKit, ARKit integration for visionOS 26
+- **Performance Focus**: GPU-efficient rendering for multiple glass windows and 3D content
+
+## Core Expertise
+
+### visionOS 26 Platform Features
+
+<CardGroup cols={2}>
+  <Card title="Liquid Glass Design" icon="droplet">
+    Translucent materials that adapt to light/dark environments and surrounding content
+  </Card>
+  <Card title="Spatial Widgets" icon="cube">
+    Widgets that integrate into 3D space, snapping to walls and tables with persistent placement
+  </Card>
+  <Card title="Enhanced WindowGroups" icon="window-restore">
+    Unique windows, volumetric presentations, and spatial scene management
+  </Card>
+  <Card title="SwiftUI Volumetric APIs" icon="layer-group">
+    3D content integration, transient content in volumes, breakthrough UI elements
+  </Card>
+</CardGroup>
+
+### Technical Capabilities
+
+- **Multi-Window Architecture**: WindowGroup management for spatial applications with glass background effects
+- **Spatial UI Patterns**: Ornaments, attachments, and presentations within volumetric contexts
+- **Performance Optimization**: GPU-efficient rendering and Metal optimization
+- **Accessibility Integration**: VoiceOver support and spatial navigation patterns
+
+## Key Technologies
+
+### Frameworks & APIs
+
+- **SwiftUI**: Primary UI framework with visionOS 26 spatial extensions
+- **RealityKit**: 3D content rendering and entity management
+- **ARKit**: Environment understanding and spatial anchoring
+- **Metal**: Low-level graphics optimization when needed
+
+### SwiftUI Spatial Specializations
+
+```swift
+// Glass background effect implementation
+WindowGroup {
+    ContentView()
+}
+.glassBackgroundEffect(displayMode: .automatic)
+
+// Volumetric window with 3D content
+WindowGroup(id: "volumetric") {
+    VolumetricView()
+}
+.windowStyle(.volumetric)
+```
+
+## Design System
+
+### Liquid Glass Materials
+
+<Tabs>
+  <Tab title="Adaptive Materials">
+    Materials that respond to ambient light and surrounding content for seamless integration
+  </Tab>
+  <Tab title="Spatial Typography">
+    Text that maintains legibility in 3D space with proper depth and contrast
+  </Tab>
+  <Tab title="Depth-Aware UI">
+    Components that understand and respond to their position in 3D space
+  </Tab>
+</Tabs>
+
+### Spatial Layout Principles
+
+- **3D Positioning**: Proper depth management and spatial relationships
+- **Gesture Systems**: Touch, gaze, and gesture recognition in volumetric space
+- **State Management**: Observable patterns for spatial content and window lifecycle
+
+## When to Use This Agent
+
+<AccordionGroup>
+  <Accordion title="Native visionOS Development">
+    Deploy for building native visionOS applications with SwiftUI and RealityKit
+  </Accordion>
+  <Accordion title="Liquid Glass Design Implementation">
+    Use for implementing Apple's Liquid Glass design system and spatial UI patterns
+  </Accordion>
+  <Accordion title="Volumetric Interfaces">
+    Consult for creating 3D volumetric content and spatial window management
+  </Accordion>
+  <Accordion title="Performance Optimization">
+    Engage for optimizing spatial applications for Vision Pro hardware
+  </Accordion>
+</AccordionGroup>
+
+## Implementation Patterns
+
+<Steps>
+  <Step title="Design Spatial Hierarchy">
+    Plan window groups, volumetric scenes, and spatial relationships before implementation
+  </Step>
+  <Step title="Implement Glass Effects">
+    Apply Liquid Glass materials with appropriate display modes for context
+  </Step>
+  <Step title="Add 3D Content">
+    Integrate RealityKit entities with SwiftUI using ViewAttachmentComponent
+  </Step>
+  <Step title="Optimize Performance">
+    Profile with Instruments, optimize Metal rendering, manage memory efficiently
+  </Step>
+  <Step title="Test Accessibility">
+    Validate VoiceOver support, spatial navigation, and assistive technology integration
+  </Step>
+</Steps>
+
+## Architecture Patterns
+
+### Multi-Window Management
+
+```swift
+@main
+struct MyApp: App {
+    var body: some Scene {
+        // Main windowed content
+        WindowGroup {
+            MainView()
+        }
+        .glassBackgroundEffect()
+        
+        // Volumetric content
+        WindowGroup(id: "3d-view") {
+            Model3DView()
+        }
+        .windowStyle(.volumetric)
+        
+        // Immersive space
+        ImmersiveSpace(id: "immersive") {
+            ImmersiveView()
+        }
+    }
+}
+```
+
+### Observable Spatial Content
+
+```swift
+@Observable
+class SpatialViewModel {
+    var entities: [Entity] = []
+    var selectedEntity: Entity?
+    
+    func updateEntityPosition(_ entity: Entity, to position: SIMD3<Float>) {
+        entity.position = position
+    }
+}
+```
+
+## Documentation References
+
+<CardGroup cols={2}>
+  <Card title="visionOS Documentation" icon="book" href="https://developer.apple.com/documentation/visionos/">
+    Official Apple visionOS documentation
+  </Card>
+  <Card title="WWDC25 - What's new in visionOS 26" icon="video" href="https://developer.apple.com/videos/play/wwdc2025/317/">
+    Latest visionOS 26 features and capabilities
+  </Card>
+  <Card title="WWDC25 - Set the scene with SwiftUI" icon="video" href="https://developer.apple.com/videos/play/wwdc2025/290/">
+    SwiftUI spatial scene management
+  </Card>
+  <Card title="visionOS Release Notes" icon="clipboard-list" href="https://developer.apple.com/documentation/visionos-release-notes/visionos-26-release-notes">
+    Version-specific changes and updates
+  </Card>
+</CardGroup>
+
+## Best Practices
+
+<Warning>
+  **visionOS-Specific Implementation Required**
+</Warning>
+
+### Platform Guidelines
+
+- Follow Human Interface Guidelines for spatial computing
+- Use native SwiftUI patterns rather than UIKit wrappers
+- Leverage RealityKit for 3D content instead of third-party engines
+- Respect user privacy and camera access requirements
+
+### Performance Considerations
+
+- Optimize for thermal constraints of Vision Pro
+- Use LOD (Level of Detail) for complex 3D models
+- Implement efficient state management for spatial scenes
+- Profile regularly with Instruments
+
+## Limitations
+
+<Note>
+  This agent specializes in visionOS-specific implementations, not cross-platform solutions
+</Note>
+
+- **Platform-Specific**: visionOS only, not cross-platform spatial solutions
+- **Framework Focus**: SwiftUI/RealityKit stack, not Unity or Unreal
+- **Version Requirements**: Requires visionOS 26 beta/release features
+- **No Backward Compatibility**: Not focused on earlier visionOS versions
+
+## Related Agents
+
+<CardGroup cols={2}>
+  <Card title="macOS Spatial/Metal Engineer" icon="microchip" href="/agents/spatial-computing/macos-spatial-metal-engineer">
+    Metal rendering and Vision Pro streaming from macOS
+  </Card>
+  <Card title="XR Interface Architect" icon="cube" href="/agents/spatial-computing/xr-interface-architect">
+    Cross-platform spatial UX design principles
+  </Card>
+  <Card title="Terminal Integration Specialist" icon="terminal" href="/agents/spatial-computing/terminal-integration-specialist">
+    Terminal integration for spatial computing apps
+  </Card>
+</CardGroup>

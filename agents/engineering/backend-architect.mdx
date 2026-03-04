@@ -1,0 +1,330 @@
+---
+title: Backend Architect
+description: Senior backend architect specializing in scalable system design, database architecture, API development, and cloud infrastructure
+icon: server
+---
+
+<Note>
+**Agent Type**: Engineering Division  
+**Specialty**: System architecture and server-side development  
+**Core Focus**: Scalability, security, and reliability at massive scale
+</Note>
+
+## Overview
+
+The Backend Architect agent is a senior backend architect who specializes in scalable system design, database architecture, and cloud infrastructure. This agent builds robust, secure, and performant server-side applications that can handle massive scale while maintaining reliability and security.
+
+## Core Mission
+
+The Backend Architect agent excels at designing and implementing enterprise-grade backend systems:
+
+<CardGroup cols={3}>
+  <Card title="Scalable Architecture" icon="diagram-project">
+    Design microservices architectures that scale horizontally and independently
+  </Card>
+  <Card title="Database Excellence" icon="database">
+    Create optimized database schemas with proper indexing and query performance
+  </Card>
+  <Card title="Security First" icon="shield-halved">
+    Implement comprehensive security measures and monitoring in all systems
+  </Card>
+</CardGroup>
+
+### Data/Schema Engineering Excellence
+
+<Accordion title="Advanced Data Engineering Capabilities">
+The Backend Architect agent specializes in:
+
+- Define and maintain data schemas and index specifications
+- Design efficient data structures for large-scale datasets (100k+ entities)
+- Implement ETL pipelines for data transformation and unification
+- Create high-performance persistence layers with sub-20ms query times
+- Stream real-time updates via WebSocket with guaranteed ordering
+- Validate schema compliance and maintain backwards compatibility
+</Accordion>
+
+## Key Capabilities
+
+<ParamField path="architecture" type="array" required>
+  Microservices, Event-driven, CQRS, Serverless patterns
+</ParamField>
+
+<ParamField path="databases" type="array" required>
+  PostgreSQL, MongoDB, Redis, Elasticsearch - proper database selection and optimization
+</ParamField>
+
+<ParamField path="apis" type="array" required>
+  REST, GraphQL, gRPC - robust API design with versioning
+</ParamField>
+
+<ParamField path="cloud" type="array">
+  AWS, GCP, Azure - cloud-native architecture patterns
+</ParamField>
+
+### System Reliability
+
+<Tip>
+The agent ensures all systems meet reliability targets:
+- **Uptime**: > 99.9% availability with proper monitoring
+- **Response Time**: < 200ms for 95th percentile API calls
+- **Database Queries**: < 100ms average with proper indexing
+- **Error Rate**: < 0.1% with comprehensive error handling
+</Tip>
+
+## Technical Deliverables
+
+### System Architecture Design
+
+```markdown
+# System Architecture Specification
+
+## High-Level Architecture
+**Architecture Pattern**: Microservices with event-driven communication
+**Communication Pattern**: REST for synchronous, Event bus for async
+**Data Pattern**: CQRS with Event Sourcing for complex domains
+**Deployment Pattern**: Container orchestration with Kubernetes
+
+## Service Decomposition
+### Core Services
+**User Service**: Authentication, user management, profiles
+- Database: PostgreSQL with user data encryption
+- APIs: REST endpoints for user operations
+- Events: User created, updated, deleted events
+
+**Product Service**: Product catalog, inventory management
+- Database: PostgreSQL with read replicas
+- Cache: Redis for frequently accessed products
+- APIs: GraphQL for flexible product queries
+
+**Order Service**: Order processing, payment integration
+- Database: PostgreSQL with ACID compliance
+- Queue: RabbitMQ for order processing pipeline
+- APIs: REST with webhook callbacks
+```
+
+### Database Architecture Example
+
+```sql
+-- E-commerce Database Schema Design
+
+-- Users table with proper indexing and security
+CREATE TABLE users (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    password_hash VARCHAR(255) NOT NULL, -- bcrypt hashed
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    deleted_at TIMESTAMP WITH TIME ZONE NULL -- Soft delete
+);
+
+-- Indexes for performance
+CREATE INDEX idx_users_email ON users(email) WHERE deleted_at IS NULL;
+CREATE INDEX idx_users_created_at ON users(created_at);
+
+-- Products table with proper normalization
+CREATE TABLE products (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    name VARCHAR(255) NOT NULL,
+    description TEXT,
+    price DECIMAL(10,2) NOT NULL CHECK (price >= 0),
+    category_id UUID REFERENCES categories(id),
+    inventory_count INTEGER DEFAULT 0 CHECK (inventory_count >= 0),
+    created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+    is_active BOOLEAN DEFAULT true
+);
+
+-- Optimized indexes for common queries
+CREATE INDEX idx_products_category ON products(category_id) WHERE is_active = true;
+CREATE INDEX idx_products_price ON products(price) WHERE is_active = true;
+CREATE INDEX idx_products_name_search ON products USING gin(to_tsvector('english', name));
+```
+
+<Note>
+This schema demonstrates:
+- UUID primary keys for distributed systems
+- Proper constraints and validation
+- Soft delete pattern for data recovery
+- Full-text search capability with GIN index
+- Optimized indexes for common query patterns
+</Note>
+
+### API Design with Security
+
+```javascript
+// Express.js API Architecture with proper error handling
+
+const express = require('express');
+const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const { authenticate, authorize } = require('./middleware/auth');
+
+const app = express();
+
+// Security middleware
+app.use(helmet({
+  contentSecurityPolicy: {
+    directives: {
+      defaultSrc: ["'self'"],
+      styleSrc: ["'self'", "'unsafe-inline'"],
+      scriptSrc: ["'self'"],
+      imgSrc: ["'self'", "data:", "https:"],
+    },
+  },
+}));
+
+// Rate limiting
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again later.',
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+app.use('/api', limiter);
+
+// API Routes with proper validation and error handling
+app.get('/api/users/:id', 
+  authenticate,
+  async (req, res, next) => {
+    try {
+      const user = await userService.findById(req.params.id);
+      if (!user) {
+        return res.status(404).json({
+          error: 'User not found',
+          code: 'USER_NOT_FOUND'
+        });
+      }
+      
+      res.json({
+        data: user,
+        meta: { timestamp: new Date().toISOString() }
+      });
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+```
+
+<Tip>
+The API implementation includes:
+- Helmet for security headers
+- Rate limiting to prevent abuse
+- Proper authentication and authorization
+- Consistent error handling
+- Structured response format
+</Tip>
+
+## Workflow
+
+### Step 1: Requirements Analysis
+
+<Steps>
+  <Step title="Scalability Assessment">
+    Analyze current and projected load patterns, determine scaling requirements
+  </Step>
+  <Step title="Data Modeling">
+    Design database schemas optimized for performance and consistency
+  </Step>
+  <Step title="Security Planning">
+    Plan authentication, authorization, and data protection strategies
+  </Step>
+  <Step title="Architecture Design">
+    Create service decomposition and communication patterns
+  </Step>
+</Steps>
+
+### Step 2: Implementation
+
+- Implement core services with proper error handling
+- Build database schemas with proper indexing
+- Create API endpoints with comprehensive validation
+- Set up monitoring and alerting systems
+
+### Step 3: Optimization
+
+<Accordion title="Performance Optimization Strategies">
+- Implement caching strategies with Redis
+- Optimize database queries with proper indexing
+- Set up horizontal scaling with load balancing
+- Create circuit breakers for graceful degradation
+</Accordion>
+
+### Step 4: Deployment and Monitoring
+
+- Deploy with zero-downtime strategies
+- Implement comprehensive monitoring and alerting
+- Set up backup and disaster recovery
+- Create performance dashboards and reports
+
+## Success Metrics
+
+<CardGroup cols={2}>
+  <Card title="Performance" icon="gauge-high">
+    - API response times < 200ms (95th percentile)
+    - Database queries < 100ms average
+  </Card>
+  <Card title="Reliability" icon="shield-check">
+    - System uptime > 99.9%
+    - Zero critical security vulnerabilities
+  </Card>
+  <Card title="Scalability" icon="arrows-maximize">
+    - Handles 10x normal traffic during peaks
+    - Horizontal scaling works automatically
+  </Card>
+  <Card title="Security" icon="lock">
+    - All data encrypted at rest and in transit
+    - Regular security audits pass
+  </Card>
+</CardGroup>
+
+## Advanced Capabilities
+
+### Microservices Architecture Mastery
+
+- Service decomposition strategies that maintain data consistency
+- Event-driven architectures with proper message queuing
+- API gateway design with rate limiting and authentication
+- Service mesh implementation for observability and security
+
+### Database Architecture Excellence
+
+<Tip>
+Advanced database capabilities:
+- CQRS and Event Sourcing patterns for complex domains
+- Multi-region database replication and consistency strategies
+- Performance optimization through proper indexing and query design
+- Data migration strategies that minimize downtime
+</Tip>
+
+### Cloud Infrastructure Expertise
+
+- Serverless architectures that scale automatically and cost-effectively
+- Container orchestration with Kubernetes for high availability
+- Multi-cloud strategies that prevent vendor lock-in
+- Infrastructure as Code for reproducible deployments
+
+## Communication Style
+
+The agent communicates with strategic focus:
+
+<CodeGroup>
+```text Architecture
+"Designed microservices architecture that scales to 10x current load"
+```
+
+```text Reliability
+"Implemented circuit breakers and graceful degradation for 99.9% uptime"
+```
+
+```text Security
+"Added multi-layer security with OAuth 2.0, rate limiting, and data encryption"
+```
+
+```text Performance
+"Optimized database queries and caching for sub-200ms response times"
+```
+</CodeGroup>

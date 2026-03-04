@@ -1,0 +1,295 @@
+---
+title: 'Phase 4: Hardening'
+description: 'The final quality gauntlet - Reality Checker defaults to NEEDS WORK'
+---
+
+# Phase 4 Playbook — Quality & Hardening
+
+<Info>
+**Duration:** 3-7 days | **Agents:** 8 | **Gate Keeper:** Reality Checker (sole authority)
+</Info>
+
+## Objective
+
+The final quality gauntlet. The Reality Checker defaults to "NEEDS WORK" — you must prove production readiness with overwhelming evidence. This phase exists because first implementations typically need 2-3 revision cycles, and that's healthy.
+
+## Pre-Conditions
+
+<Steps>
+  <Step title="Build Complete">
+    Phase 3 Quality Gate passed (all tasks QA'd)
+  </Step>
+  <Step title="Handoff Received">
+    Phase 3 Handoff Package received
+  </Step>
+  <Step title="Features Verified">
+    All features implemented and individually verified
+  </Step>
+</Steps>
+
+## Critical Mindset
+
+<Warning>
+**The Reality Checker's default verdict is NEEDS WORK.**
+
+This is not pessimism — it's realism. Production readiness requires:
+- Complete user journeys working end-to-end
+- Cross-device consistency (desktop, tablet, mobile)
+- Performance under load (not just happy path)
+- Security validation (not just "we added auth")
+- Specification compliance (every requirement, not most)
+
+A B/B+ rating on first pass is normal and expected.
+</Warning>
+
+## Step 1: Evidence Collection (Day 1-2, All Parallel)
+
+<CardGroup cols={2}>
+  <Card title="Evidence Collector" icon="camera">
+    **Comprehensive Visual Evidence**
+    
+    **Full screenshot suite:**
+    - Desktop (1920x1080) — every page/view
+    - Tablet (768x1024) — every page/view
+    - Mobile (375x667) — every page/view
+    
+    **Interaction evidence:**
+    - Navigation flows
+    - Form interactions (all states)
+    - Modal/dialog interactions
+    - Accordion/expandable content
+    
+    **Theme evidence:**
+    - Light mode — all pages
+    - Dark mode — all pages
+    - System preference detection
+    
+    **Error states:**
+    - 404 pages, validation errors, network errors, empty states
+    
+    **Timeline:** 2 days
+  </Card>
+  
+  <Card title="API Tester" icon="plug">
+    **Full API Regression**
+    
+    **Endpoint regression:**
+    - All endpoints (GET, POST, PUT, DELETE)
+    - Auth/authorization verification
+    - Input validation testing
+    - Error response verification
+    
+    **Integration testing:**
+    - Cross-service communication
+    - Database operations
+    - External API integration
+    
+    **Edge cases:**
+    - Rate limiting, large payloads, concurrent requests, malformed input
+    
+    **Timeline:** 2 days
+  </Card>
+  
+  <Card title="Performance Benchmarker" icon="gauge-high">
+    **Load Testing**
+    
+    **Load test at 10x expected traffic:**
+    - Response time distribution (P50, P95, P99)
+    - Throughput under load
+    - Error rate under load
+    - Resource utilization
+    
+    **Core Web Vitals:**
+    - LCP < 2.5s
+    - FID < 100ms
+    - CLS < 0.1
+    
+    **Database performance:**
+    - Query execution times
+    - Connection pool utilization
+    - Index effectiveness
+    
+    **Stress test:**
+    - Breaking point identification
+    - Graceful degradation
+    - Recovery time
+    
+    **Timeline:** 2 days
+  </Card>
+  
+  <Card title="Legal Compliance Checker" icon="scale-balanced">
+    **Final Compliance Audit**
+    
+    **Privacy compliance:**
+    - Privacy policy accuracy
+    - Consent management
+    - Data subject rights
+    - Cookie consent
+    
+    **Security compliance:**
+    - Data encryption (at rest/in transit)
+    - Authentication security
+    - Input sanitization
+    - OWASP Top 10 check
+    
+    **Regulatory compliance:**
+    - GDPR (if applicable)
+    - CCPA (if applicable)
+    - Industry-specific requirements
+    
+    **Accessibility:**
+    - WCAG 2.1 AA verification
+    - Screen reader compatibility
+    - Keyboard navigation
+    
+    **Timeline:** 2 days
+  </Card>
+</CardGroup>
+
+## Step 2: Analysis (Day 3-4, Parallel)
+
+<Tabs>
+  <Tab title="Test Results Analyzer">
+    **Quality Metrics Aggregation**
+    
+    Input: ALL Step 1 reports
+    
+    Deliverables:
+    - Overall quality score
+    - Category breakdown (visual, functional, performance, security, compliance)
+    - Issue severity distribution
+    - Trend analysis (if multiple test cycles)
+    - Issue prioritization (Critical/High/Medium/Low)
+    - Risk assessment
+    - Production readiness probability
+    
+    **Timeline:** 1 day
+  </Tab>
+  
+  <Tab title="Workflow Optimizer">
+    **Process Efficiency Review**
+    
+    Input: Phase 3 execution data + Step 1 findings
+    
+    Deliverables:
+    - Process efficiency analysis
+    - Dev↔QA loop efficiency
+    - Bottleneck identification
+    - Time-to-resolution metrics
+    - Improvement recommendations
+    - Automation opportunities
+    
+    **Timeline:** 1 day
+  </Tab>
+  
+  <Tab title="Infrastructure Maintainer">
+    **Production Readiness Check**
+    
+    Deliverables:
+    - Production environment validation
+    - All services healthy
+    - Auto-scaling configured and tested
+    - Load balancer verified
+    - SSL/TLS certificates valid
+    - Monitoring validation
+    - Alert rules configured
+    - Dashboard access verified
+    - Disaster recovery validation
+    - Backup systems operational
+    - Security validation
+    - Firewall rules reviewed
+    - Vulnerability scan clean
+    
+    **Timeline:** 1 day
+  </Tab>
+</Tabs>
+
+## Step 3: Final Judgment (Day 5-7, Sequential)
+
+<Accordion title="Reality Checker — THE FINAL VERDICT">
+**MANDATORY PROCESS — DO NOT SKIP:**
+
+**Step 1: Reality Check Commands**
+- Verify what was actually built (ls, grep for claimed features)
+- Cross-check claimed features against specification
+- Run comprehensive screenshot capture
+- Review all evidence from Step 1 and Step 2
+
+**Step 2: QA Cross-Validation**
+- Review Evidence Collector findings
+- Cross-reference with API Tester results
+- Verify Performance Benchmarker data
+- Confirm Legal Compliance Checker findings
+
+**Step 3: End-to-End System Validation**
+- Test COMPLETE user journeys (not individual features)
+- Verify responsive behavior across ALL devices
+- Check interaction flows end-to-end
+- Review actual performance data
+
+**Step 4: Specification Reality Check**
+- Quote EXACT text from original specification
+- Compare with ACTUAL implementation evidence
+- Document EVERY gap between spec and reality
+- No assumptions — evidence only
+
+**VERDICT OPTIONS:**
+- **READY:** Overwhelming evidence of production readiness (rare first pass)
+- **NEEDS WORK:** Specific issues identified with fix list (expected)
+- **NOT READY:** Major architectural issues requiring Phase 1/2 revisit
+
+**Default:** NEEDS WORK unless proven otherwise
+</Accordion>
+
+## Quality Gate — THE FINAL GATE
+
+| # | Criterion | Threshold | Evidence Required |
+|---|-----------|-----------|-------------------|
+| 1 | User journeys complete | All critical paths working | Reality Checker screenshots |
+| 2 | Cross-device consistency | Desktop + Tablet + Mobile | Responsive screenshots |
+| 3 | Performance certified | P95 < 200ms, LCP < 2.5s, >99.9% uptime | Performance report |
+| 4 | Security validated | Zero critical vulnerabilities | Security scan + compliance |
+| 5 | Compliance certified | All regulatory requirements met | Legal Compliance report |
+| 6 | Specification compliance | 100% of spec requirements | Point-by-point verification |
+| 7 | Infrastructure ready | Production environment validated | Infrastructure report |
+
+## Gate Decision
+
+<Tabs>
+  <Tab title="READY">
+    **Proceed to Phase 5**
+    
+    Production deployment approved with overwhelming evidence.
+    
+    **Handoff includes:**
+    - Reality Checker certification
+    - Performance certification
+    - Compliance certification
+    - Infrastructure readiness
+    - Known limitations (if any)
+  </Tab>
+  
+  <Tab title="NEEDS WORK">
+    **Return to Phase 3**
+    
+    Fix list provided. Issues enter Dev↔QA loop.
+    
+    **Expected:** 2-3 revision cycles is normal and healthy.
+    
+    When fixes complete → Return to Phase 4 Step 3
+  </Tab>
+  
+  <Tab title="NOT READY">
+    **Return to Phase 1/2**
+    
+    Fundamental architectural issues identified.
+    
+    Requires Studio Producer decision on path forward.
+  </Tab>
+</Tabs>
+
+---
+
+<Note>
+Phase 4 is complete when the Reality Checker issues a READY verdict with overwhelming evidence. NEEDS WORK is the expected first-pass result — it means the system is working but needs polish.
+</Note>

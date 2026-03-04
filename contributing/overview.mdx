@@ -1,0 +1,471 @@
+---
+title: Contributing to The Agency
+description: How to contribute to The Agency - add agents, improve documentation, share success stories
+---
+
+# Contributing to The Agency
+
+Thank you for considering contributing to The Agency! It's people like you who make this collection of AI agents better for everyone.
+
+## Ways to Contribute
+
+<CardGroup cols={2}>
+  <Card title="Create New Agents" icon="plus">
+    Add specialized agents to fill gaps or address new domains
+  </Card>
+  <Card title="Improve Existing Agents" icon="wrench">
+    Enhance workflows, add examples, update best practices
+  </Card>
+  <Card title="Share Success Stories" icon="star">
+    Document how you've used agents successfully
+  </Card>
+  <Card title="Fix Issues" icon="bug">
+    Report bugs, fix typos, improve clarity
+  </Card>
+</CardGroup>
+
+## Code of Conduct
+
+This project and everyone participating in it is governed by our Code of Conduct. By participating, you are expected to uphold this code:
+
+<AccordionGroup>
+  <Accordion title="Be Respectful">
+    Treat everyone with respect. Healthy debate is encouraged, but personal attacks are not tolerated.
+  </Accordion>
+  
+  <Accordion title="Be Inclusive">
+    Welcome and support people of all backgrounds and identities.
+  </Accordion>
+  
+  <Accordion title="Be Collaborative">
+    What we create together is better than what we create alone.
+  </Accordion>
+  
+  <Accordion title="Be Professional">
+    Keep discussions focused on improving the agents and the community.
+  </Accordion>
+</AccordionGroup>
+
+## How to Contribute
+
+### 1. Create a New Agent
+
+Have an idea for a specialized agent? Here's how to add one:
+
+<Steps>
+  <Step title="Fork the repository">
+    ```bash
+    # Fork on GitHub, then clone your fork
+    git clone https://github.com/YOUR_USERNAME/agency-agents.git
+    cd agency-agents
+    ```
+  </Step>
+  
+  <Step title="Choose the appropriate category">
+    Select or propose a category:
+    - `engineering/` - Software development specialists
+    - `design/` - UX/UI and creative specialists
+    - `marketing/` - Growth and marketing specialists
+    - `product/` - Product management specialists
+    - `project-management/` - PM and coordination specialists
+    - `testing/` - QA and testing specialists
+    - `support/` - Operations and support specialists
+    - `spatial-computing/` - AR/VR/XR specialists
+    - `specialized/` - Unique specialists that don't fit elsewhere
+  </Step>
+  
+  <Step title="Create your agent file">
+    ```bash
+    # Create new agent file
+    touch category/category-agent-name.md
+    
+    # Example:
+    touch marketing/marketing-email-specialist.md
+    ```
+    
+    Follow the [agent template](/contributing/agent-template) structure.
+  </Step>
+  
+  <Step title="Test your agent">
+    Use the agent in real scenarios:
+    - Does it produce the expected outputs?
+    - Is the personality distinctive?
+    - Are the deliverables concrete and useful?
+    - Do the workflows make sense?
+  </Step>
+  
+  <Step title="Submit a Pull Request">
+    ```bash
+    # Create a branch
+    git checkout -b add-agent-name
+    
+    # Add your changes
+    git add .
+    git commit -m "Add [Agent Name] specialist"
+    
+    # Push to your fork
+    git push origin add-agent-name
+    ```
+    
+    Then open a Pull Request on GitHub.
+  </Step>
+</Steps>
+
+### 2. Improve Existing Agents
+
+See ways to enhance an agent? Contributions welcome:
+
+<Tabs>
+  <Tab title="Add Examples">
+    **What to Add**:
+    - Real-world code examples
+    - Use case scenarios
+    - Success stories
+    - Best practices
+    
+    **Example Contribution**:
+    ```markdown
+    ## Real-World Example: E-commerce Checkout
+    
+    When optimizing a checkout flow, Frontend Developer:
+    
+    1. Analyzed current funnel (65% completion)
+    2. Identified friction points (5-step process)
+    3. Redesigned as 2-step with auto-save
+    4. Implemented with progressive disclosure
+    5. Result: 82% completion (+17%)
+    
+    [Code example follows...]
+    ```
+  </Tab>
+  
+  <Tab title="Update Workflows">
+    **What to Update**:
+    - Modern best practices
+    - New tools or techniques
+    - Improved processes
+    - Efficiency gains
+    
+    **Example Update**:
+    ```markdown
+    ## Updated Performance Workflow
+    
+    **Old Approach**: Manual Lighthouse testing
+    
+    **New Approach**: Automated Lighthouse CI
+    - Runs on every PR
+    - Fails if scores drop
+    - Tracks trends over time
+    - GitHub Actions integration
+    
+    [Implementation details...]
+    ```
+  </Tab>
+  
+  <Tab title="Enhance Metrics">
+    **What to Add**:
+    - Updated benchmarks
+    - Industry standards
+    - Real performance data
+    - Success criteria
+    
+    **Example Enhancement**:
+    ```markdown
+    ## Updated Success Metrics (2026)
+    
+    **Core Web Vitals**:
+    - LCP < 2.5s (was 3s)
+    - FID < 100ms (unchanged)
+    - CLS < 0.1 (unchanged)
+    - INP < 200ms (new metric)
+    
+    **Browser Support**:
+    - Last 2 versions all major browsers
+    - 95% global browser coverage
+    - Progressive enhancement for older browsers
+    ```
+  </Tab>
+</Tabs>
+
+### 3. Share Success Stories
+
+Used these agents successfully? Share your experience:
+
+<AccordionGroup>
+  <Accordion title="GitHub Discussions">
+    Post in [GitHub Discussions](https://github.com/msitarzewski/agency-agents/discussions) with:
+    
+    - **Project Context**: What were you building?
+    - **Agents Used**: Which agents did you activate?
+    - **Process**: How did you use them?
+    - **Results**: What outcomes did you achieve?
+    - **Lessons Learned**: What would you do differently?
+  </Accordion>
+  
+  <Accordion title="Case Study">
+    Write a detailed case study for the README:
+    
+    ```markdown
+    ## Case Study: [Project Name]
+    
+    ### Challenge
+    [What problem were you solving?]
+    
+    ### Approach
+    [Which agents did you use and how?]
+    
+    ### Results
+    [Quantifiable outcomes]
+    
+    ### Key Insights
+    [What made this successful?]
+    ```
+  </Accordion>
+  
+  <Accordion title="Blog Post or Video">
+    Created external content? Share it:
+    
+    - Link to your blog post
+    - YouTube tutorial video
+    - Conference talk
+    - Podcast episode
+    
+    Add to the README or discussions.
+  </Accordion>
+</AccordionGroup>
+
+### 4. Report Issues
+
+Found a problem? Let us know:
+
+<Steps>
+  <Step title="Check existing issues">
+    Search [GitHub Issues](https://github.com/msitarzewski/agency-agents/issues) to avoid duplicates
+  </Step>
+  
+  <Step title="Provide context">
+    Include:
+    - What agent(s) are affected
+    - What you expected to happen
+    - What actually happened
+    - Steps to reproduce
+    - Your environment (if relevant)
+  </Step>
+  
+  <Step title="Suggest solutions">
+    If you have ideas for fixes, share them!
+  </Step>
+</Steps>
+
+## Pull Request Process
+
+### Before Submitting
+
+<Tabs>
+  <Tab title="New Agent Checklist">
+    - [ ] Follows agent template structure
+    - [ ] Includes personality and voice
+    - [ ] Has concrete code/template examples (2-3 minimum)
+    - [ ] Defines success metrics
+    - [ ] Includes step-by-step workflow
+    - [ ] Proofread and formatted correctly
+    - [ ] Tested in real scenarios
+    - [ ] Fills a real gap (not duplicate)
+  </Tab>
+  
+  <Tab title="Improvement Checklist">
+    - [ ] Improvement adds clear value
+    - [ ] Examples are runnable/practical
+    - [ ] Code follows modern best practices
+    - [ ] Metrics are current and accurate
+    - [ ] Documentation is clear
+    - [ ] No typos or formatting issues
+  </Tab>
+</Tabs>
+
+### Submitting Your PR
+
+<Steps>
+  <Step title="Create descriptive PR">
+    ```markdown
+    ## Agent Information
+    **Agent Name**: [Name]
+    **Category**: [engineering/design/marketing/etc.]
+    **Specialty**: [One-line description]
+    
+    ## Motivation
+    [Why is this agent needed? What gap does it fill?]
+    
+    ## Testing
+    [How have you tested this agent? Real-world use cases?]
+    
+    ## Checklist
+    - [x] Follows agent template structure
+    - [x] Includes personality and voice
+    - [x] Has concrete examples
+    - [x] Defines success metrics
+    - [x] Tested in real scenarios
+    ```
+  </Step>
+  
+  <Step title="Community review">
+    Other contributors may provide feedback. Address comments and make improvements.
+  </Step>
+  
+  <Step title="Iteration">
+    Work with reviewers to refine your contribution.
+  </Step>
+  
+  <Step title="Approval & merge">
+    Once approved, maintainers will merge your contribution!
+  </Step>
+</Steps>
+
+## Style Guide
+
+### Writing Style
+
+<CardGroup cols={2}>
+  <Card title="Be Specific">
+    "Reduce page load by 60%" not "Make it faster"
+  </Card>
+  <Card title="Be Concrete">
+    "Create React components with TypeScript" not "Build UIs"
+  </Card>
+  <Card title="Be Memorable">
+    Give agents personality, not generic corporate speak
+  </Card>
+  <Card title="Be Practical">
+    Include real code, not pseudo-code
+  </Card>
+</CardGroup>
+
+### Formatting Guidelines
+
+<Tabs>
+  <Tab title="Markdown">
+    ```markdown
+    # Use proper heading hierarchy
+    
+    ## Section headers with emojis (optional)
+    
+    ### Subsections
+    
+    - Use **bold** for emphasis
+    - Use `code` for technical terms
+    - Use > blockquotes for important notes
+    ```
+  </Tab>
+  
+  <Tab title="Code Blocks">
+    ```markdown
+    \`\`\`typescript
+    // Always include:
+    // 1. Language specification
+    // 2. Comments explaining key concepts
+    // 3. Real, runnable code
+    // 4. Modern best practices
+    
+    interface AgentExample {
+      name: string;
+      specialty: string;
+    }
+    \`\`\`
+    ```
+  </Tab>
+  
+  <Tab title="Tables">
+    ```markdown
+    | Column 1 | Column 2 | Column 3 |
+    |----------|----------|----------|
+    | Data     | Data     | Data     |
+    
+    Use for:
+    - Comparing options
+    - Showing metrics
+    - Organizing structured data
+    ```
+  </Tab>
+</Tabs>
+
+### Tone Guidelines
+
+<AccordionGroup>
+  <Accordion title="Professional but Approachable">
+    **Good**: "Let's optimize this API endpoint for better performance"
+    
+    **Avoid**: "We must optimize the API endpoint immediately" (too formal)
+    
+    **Avoid**: "Yo, this API is slow, let's fix it" (too casual)
+  </Accordion>
+  
+  <Accordion title="Confident but Not Arrogant">
+    **Good**: "Here's the best approach based on industry standards"
+    
+    **Avoid**: "Obviously, you should do this" (condescending)
+    
+    **Avoid**: "Maybe you could try this?" (too uncertain)
+  </Accordion>
+  
+  <Accordion title="Helpful but Not Hand-Holding">
+    **Good**: "Implement virtualization to handle large datasets efficiently"
+    
+    **Avoid**: "You need to implement virtualization because your table is slow" (assumes incompetence)
+    
+    **Avoid**: "First open your editor, then create a file..." (too basic)
+  </Accordion>
+</AccordionGroup>
+
+## Recognition
+
+Contributors who make significant contributions will be:
+
+<CardGroup cols={2}>
+  <Card title="README Credit" icon="trophy">
+    Listed in the acknowledgments section
+  </Card>
+  <Card title="Release Notes" icon="newspaper">
+    Highlighted in release announcements
+  </Card>
+  <Card title="Agent Credit" icon="user">
+    Credited in the agent file itself
+  </Card>
+  <Card title="Community Showcase" icon="star">
+    Featured in "Agent of the Week" (if applicable)
+  </Card>
+</CardGroup>
+
+## Questions?
+
+<CardGroup cols={2}>
+  <Card title="GitHub Discussions" icon="comments" href="https://github.com/msitarzewski/agency-agents/discussions">
+    Ask questions and discuss ideas
+  </Card>
+  <Card title="GitHub Issues" icon="circle-exclamation" href="https://github.com/msitarzewski/agency-agents/issues">
+    Report bugs or request features
+  </Card>
+  <Card title="Creating Agents" icon="plus" href="/contributing/creating-agents">
+    Detailed guide for creating agents
+  </Card>
+  <Card title="Agent Template" icon="file-code" href="/contributing/agent-template">
+    Template structure reference
+  </Card>
+</CardGroup>
+
+## Thank You!
+
+Your contributions make The Agency better for everyone. Whether you're:
+
+- Adding a new agent
+- Improving documentation
+- Fixing bugs
+- Sharing success stories
+- Helping other contributors
+
+**You're making a difference. Thank you!**
+
+---
+
+<Note>
+  Made with ❤️ by the community, for the community
+</Note>

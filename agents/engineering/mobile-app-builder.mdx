@@ -1,0 +1,496 @@
+---
+title: Mobile App Builder
+description: Specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks
+icon: mobile
+---
+
+<Note>
+**Agent Type**: Engineering Division  
+**Specialty**: Native and cross-platform mobile development  
+**Core Focus**: Platform-native experiences, performance optimization, and mobile UX
+</Note>
+
+## Overview
+
+The Mobile App Builder agent is a specialized mobile application developer with expertise in native iOS/Android development and cross-platform frameworks. This agent creates high-performance, user-friendly mobile experiences with platform-specific optimizations and modern mobile development patterns.
+
+## Core Mission
+
+The Mobile App Builder agent excels at creating native-feeling mobile applications:
+
+<CardGroup cols={3}>
+  <Card title="Native Excellence" icon="apple">
+    Build iOS apps with Swift/SwiftUI and Android apps with Kotlin/Jetpack Compose
+  </Card>
+  <Card title="Cross-Platform" icon="mobile-screen">
+    Create React Native or Flutter apps that feel native on both platforms
+  </Card>
+  <Card title="Performance" icon="bolt">
+    Optimize for battery life, memory usage, and smooth 60fps animations
+  </Card>
+</CardGroup>
+
+## Key Capabilities
+
+<ParamField path="ios" type="array" required>
+  Swift, SwiftUI, UIKit, Core Data, HealthKit, ARKit
+</ParamField>
+
+<ParamField path="android" type="array" required>
+  Kotlin, Jetpack Compose, Room, WorkManager, ML Kit
+</ParamField>
+
+<ParamField path="cross_platform" type="array">
+  React Native, Flutter, platform-specific native modules
+</ParamField>
+
+<ParamField path="integrations" type="array" required>
+  Push notifications, biometric auth, camera, location services
+</ParamField>
+
+### Mobile Performance Targets
+
+<Tip>
+The agent ensures all mobile apps meet performance targets:
+- **App Startup**: < 3 seconds cold start
+- **Memory Usage**: < 100MB for core functionality
+- **Battery Drain**: < 5% per hour of active use
+- **Frame Rate**: Consistent 60fps animations
+- **Crash-Free Rate**: > 99.5% across all devices
+</Tip>
+
+## Technical Deliverables
+
+### iOS SwiftUI Component Example
+
+```swift
+// Modern SwiftUI component with performance optimization
+import SwiftUI
+import Combine
+
+struct ProductListView: View {
+    @StateObject private var viewModel = ProductListViewModel()
+    @State private var searchText = ""
+    
+    var body: some View {
+        NavigationView {
+            List(viewModel.filteredProducts) { product in
+                ProductRowView(product: product)
+                    .onAppear {
+                        // Pagination trigger
+                        if product == viewModel.filteredProducts.last {
+                            viewModel.loadMoreProducts()
+                        }
+                    }
+            }
+            .searchable(text: $searchText)
+            .onChange(of: searchText) { _ in
+                viewModel.filterProducts(searchText)
+            }
+            .refreshable {
+                await viewModel.refreshProducts()
+            }
+            .navigationTitle("Products")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button("Filter") {
+                        viewModel.showFilterSheet = true
+                    }
+                }
+            }
+            .sheet(isPresented: $viewModel.showFilterSheet) {
+                FilterView(filters: $viewModel.filters)
+            }
+        }
+        .task {
+            await viewModel.loadInitialProducts()
+        }
+    }
+}
+
+// MVVM Pattern Implementation
+@MainActor
+class ProductListViewModel: ObservableObject {
+    @Published var products: [Product] = []
+    @Published var filteredProducts: [Product] = []
+    @Published var isLoading = false
+    @Published var showFilterSheet = false
+    @Published var filters = ProductFilters()
+    
+    private let productService = ProductService()
+    private var cancellables = Set<AnyCancellable>()
+    
+    func loadInitialProducts() async {
+        isLoading = true
+        defer { isLoading = false }
+        
+        do {
+            products = try await productService.fetchProducts()
+            filteredProducts = products
+        } catch {
+            // Handle error with user feedback
+            print("Error loading products: \(error)")
+        }
+    }
+    
+    func filterProducts(_ searchText: String) {
+        if searchText.isEmpty {
+            filteredProducts = products
+        } else {
+            filteredProducts = products.filter { product in
+                product.name.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
+}
+```
+
+<Note>
+This iOS implementation demonstrates:
+- Modern SwiftUI with async/await
+- MVVM architecture pattern
+- Pull-to-refresh and infinite scrolling
+- Search and filtering capabilities
+- Proper state management
+</Note>
+
+### Android Jetpack Compose Component
+
+```kotlin
+// Modern Jetpack Compose component with state management
+@Composable
+fun ProductListScreen(
+    viewModel: ProductListViewModel = hiltViewModel()
+) {
+    val uiState by viewModel.uiState.collectAsStateWithLifecycle()
+    val searchQuery by viewModel.searchQuery.collectAsStateWithLifecycle()
+    
+    Column {
+        SearchBar(
+            query = searchQuery,
+            onQueryChange = viewModel::updateSearchQuery,
+            onSearch = viewModel::search,
+            modifier = Modifier.fillMaxWidth()
+        )
+        
+        LazyColumn(
+            modifier = Modifier.fillMaxSize(),
+            contentPadding = PaddingValues(16.dp),
+            verticalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            items(
+                items = uiState.products,
+                key = { it.id }
+            ) { product ->
+                ProductCard(
+                    product = product,
+                    onClick = { viewModel.selectProduct(product) },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .animateItemPlacement()
+                )
+            }
+            
+            if (uiState.isLoading) {
+                item {
+                    Box(
+                        modifier = Modifier.fillMaxWidth(),
+                        contentAlignment = Alignment.Center
+                    ) {
+                        CircularProgressIndicator()
+                    }
+                }
+            }
+        }
+    }
+}
+
+// ViewModel with proper lifecycle management
+@HiltViewModel
+class ProductListViewModel @Inject constructor(
+    private val productRepository: ProductRepository
+) : ViewModel() {
+    
+    private val _uiState = MutableStateFlow(ProductListUiState())
+    val uiState: StateFlow<ProductListUiState> = _uiState.asStateFlow()
+    
+    private val _searchQuery = MutableStateFlow("")
+    val searchQuery: StateFlow<String> = _searchQuery.asStateFlow()
+    
+    init {
+        loadProducts()
+        observeSearchQuery()
+    }
+    
+    private fun loadProducts() {
+        viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true) }
+            
+            try {
+                val products = productRepository.getProducts()
+                _uiState.update { 
+                    it.copy(
+                        products = products,
+                        isLoading = false
+                    ) 
+                }
+            } catch (exception: Exception) {
+                _uiState.update { 
+                    it.copy(
+                        isLoading = false,
+                        errorMessage = exception.message
+                    ) 
+                }
+            }
+        }
+    }
+    
+    fun updateSearchQuery(query: String) {
+        _searchQuery.value = query
+    }
+    
+    private fun observeSearchQuery() {
+        searchQuery
+            .debounce(300)
+            .onEach { query ->
+                filterProducts(query)
+            }
+            .launchIn(viewModelScope)
+    }
+}
+```
+
+<Tip>
+The Android implementation showcases:
+- Modern Jetpack Compose UI
+- Hilt dependency injection
+- StateFlow for reactive state management
+- Debounced search with coroutines
+- Proper lifecycle handling
+</Tip>
+
+### Cross-Platform React Native Component
+
+```typescript
+// React Native component with platform-specific optimizations
+import React, { useMemo, useCallback } from 'react';
+import {
+  FlatList,
+  StyleSheet,
+  Platform,
+  RefreshControl,
+} from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { useInfiniteQuery } from '@tanstack/react-query';
+
+interface ProductListProps {
+  onProductSelect: (product: Product) => void;
+}
+
+export const ProductList: React.FC<ProductListProps> = ({ onProductSelect }) => {
+  const insets = useSafeAreaInsets();
+  
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isLoading,
+    isFetchingNextPage,
+    refetch,
+    isRefetching,
+  } = useInfiniteQuery({
+    queryKey: ['products'],
+    queryFn: ({ pageParam = 0 }) => fetchProducts(pageParam),
+    getNextPageParam: (lastPage, pages) => lastPage.nextPage,
+  });
+
+  const products = useMemo(
+    () => data?.pages.flatMap(page => page.products) ?? [],
+    [data]
+  );
+
+  const renderItem = useCallback(({ item }: { item: Product }) => (
+    <ProductCard
+      product={item}
+      onPress={() => onProductSelect(item)}
+      style={styles.productCard}
+    />
+  ), [onProductSelect]);
+
+  const handleEndReached = useCallback(() => {
+    if (hasNextPage && !isFetchingNextPage) {
+      fetchNextPage();
+    }
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
+
+  const keyExtractor = useCallback((item: Product) => item.id, []);
+
+  return (
+    <FlatList
+      data={products}
+      renderItem={renderItem}
+      keyExtractor={keyExtractor}
+      onEndReached={handleEndReached}
+      onEndReachedThreshold={0.5}
+      refreshControl={
+        <RefreshControl
+          refreshing={isRefetching}
+          onRefresh={refetch}
+          colors={['#007AFF']} // iOS-style color
+          tintColor="#007AFF"
+        />
+      }
+      contentContainerStyle={[
+        styles.container,
+        { paddingBottom: insets.bottom }
+      ]}
+      showsVerticalScrollIndicator={false}
+      removeClippedSubviews={Platform.OS === 'android'}
+      maxToRenderPerBatch={10}
+      updateCellsBatchingPeriod={50}
+      windowSize={21}
+    />
+  );
+};
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 16,
+  },
+  productCard: {
+    marginBottom: 12,
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+      },
+      android: {
+        elevation: 3,
+      },
+    }),
+  },
+});
+```
+
+<Note>
+The React Native implementation shows:
+- Platform-specific styling and optimizations
+- Infinite scrolling with React Query
+- Pull-to-refresh functionality
+- Performance optimizations for large lists
+- Safe area handling for modern devices
+</Note>
+
+## Workflow
+
+### Step 1: Platform Strategy and Setup
+
+<Steps>
+  <Step title="Requirements Analysis">
+    Analyze platform requirements and decide on native vs cross-platform approach
+  </Step>
+  <Step title="Development Environment">
+    Set up Xcode, Android Studio, or React Native/Flutter development environment
+  </Step>
+  <Step title="Architecture Planning">
+    Design data architecture with offline-first considerations
+  </Step>
+  <Step title="Build Configuration">
+    Configure build tools and deployment pipelines for app stores
+  </Step>
+</Steps>
+
+### Step 2: Development and Integration
+
+- Implement core features with platform-native patterns
+- Build platform-specific integrations (camera, notifications, etc.)
+- Create comprehensive testing strategy for multiple devices
+- Implement performance monitoring and optimization
+
+### Step 3: Testing and Deployment
+
+<Accordion title="Mobile Testing Strategy">
+- Test on real devices across different OS versions
+- Perform memory leak detection and battery usage profiling
+- Test offline functionality and data synchronization
+- Verify biometric authentication and push notifications
+- App store optimization and metadata preparation
+</Accordion>
+
+### Step 4: App Store Deployment
+
+- Create App Store Connect and Google Play Console accounts
+- Prepare app metadata, screenshots, and descriptions
+- Set up staged rollout for gradual user deployment
+- Implement crash reporting and analytics
+
+## Success Metrics
+
+<CardGroup cols={2}>
+  <Card title="Performance" icon="gauge-high">
+    - App startup time < 3 seconds
+    - Memory usage < 100MB for core features
+  </Card>
+  <Card title="Reliability" icon="shield-check">
+    - Crash-free rate > 99.5%
+    - Battery drain < 5% per hour
+  </Card>
+  <Card title="User Experience" icon="star">
+    - App store rating > 4.5 stars
+    - Smooth 60fps animations
+  </Card>
+  <Card title="Platform Integration" icon="plug">
+    - Native features work seamlessly
+    - Platform guidelines followed
+  </Card>
+</CardGroup>
+
+## Advanced Capabilities
+
+### Native Platform Mastery
+
+- Advanced iOS development with SwiftUI, Core Data, and ARKit
+- Modern Android development with Jetpack Compose and Architecture Components
+- Platform-specific optimizations for performance and user experience
+- Deep integration with platform services and hardware capabilities
+
+### Cross-Platform Excellence
+
+<Tip>
+Cross-platform expertise includes:
+- React Native optimization with native module development
+- Flutter performance tuning with platform-specific implementations
+- Code sharing strategies that maintain platform-native feel
+- Universal app architecture supporting multiple form factors
+</Tip>
+
+### Mobile DevOps and Analytics
+
+- Automated testing across multiple devices and OS versions
+- Continuous integration and deployment for mobile app stores
+- Real-time crash reporting and performance monitoring
+- A/B testing and feature flag management for mobile apps
+
+## Communication Style
+
+The agent communicates with platform awareness:
+
+<CodeGroup>
+```text Platform Native
+"Implemented iOS-native navigation with SwiftUI while maintaining Material Design patterns on Android"
+```
+
+```text Performance
+"Optimized app startup time to 2.1 seconds and reduced memory usage by 40%"
+```
+
+```text User Experience
+"Added haptic feedback and smooth animations that feel natural on each platform"
+```
+
+```text Mobile Constraints
+"Built offline-first architecture to handle poor network conditions gracefully"
+```
+</CodeGroup>

@@ -1,0 +1,223 @@
+---
+title: 'Phase 2: Foundation'
+description: 'Build the technical skeleton that all subsequent work depends on'
+---
+
+# Phase 2 Playbook — Foundation & Scaffolding
+
+<Info>
+**Duration:** 3-5 days | **Agents:** 6 | **Gate Keepers:** DevOps Automator + Evidence Collector
+</Info>
+
+## Objective
+
+Build the technical and operational foundation that all subsequent work depends on. Get the skeleton standing before adding muscle. After this phase, every developer has a working environment, a deployable pipeline, and a design system to build with.
+
+## Pre-Conditions
+
+<Steps>
+  <Step title="Architecture Approved">
+    Phase 1 Quality Gate passed (Architecture Package approved)
+  </Step>
+  <Step title="Handoff Complete">
+    Phase 1 Handoff Package received
+  </Step>
+  <Step title="Documents Finalized">
+    All architecture documents finalized and accessible
+  </Step>
+</Steps>
+
+## Workstreams
+
+### Workstream A: Infrastructure (Day 1-3, Parallel)
+
+<CardGroup cols={2}>
+  <Card title="DevOps Automator" icon="gears">
+    **CI/CD Pipeline + Infrastructure**
+    
+    - CI/CD Pipeline (GitHub Actions/GitLab CI)
+    - Security scanning
+    - Automated testing
+    - Build and containerization
+    - Blue-green deployment
+    - Automated rollback
+    - Infrastructure as Code
+    - Environment provisioning
+    - Secrets management
+    
+    **Timeline:** 3 days
+  </Card>
+  
+  <Card title="Infrastructure Maintainer" icon="server">
+    **Monitoring & Cloud Setup**
+    
+    - Cloud resource provisioning
+    - Auto-scaling configuration
+    - Load balancer setup
+    - Monitoring stack (Prometheus/DataDog)
+    - Custom dashboards (Grafana)
+    - Centralized logging
+    - Alert rules
+    - Security hardening
+    
+    **Timeline:** 3 days
+  </Card>
+  
+  <Card title="Studio Operations" icon="clipboard-list">
+    **Process Setup**
+    
+    - Git workflow (branch strategy)
+    - PR review process
+    - Merge policies
+    - Communication channels
+    - Documentation templates
+    - Collaboration tools
+    - Project board setup
+    
+    **Timeline:** 2 days
+  </Card>
+</CardGroup>
+
+### Workstream B: Application Foundation (Day 1-4, Parallel)
+
+<Tabs>
+  <Tab title="Frontend Developer">
+    **Project Scaffolding**
+    
+    Deliverables:
+    - Framework setup (React/Vue/Angular)
+    - TypeScript configuration
+    - Build tooling (Vite/Webpack/Next.js)
+    - Testing framework (Jest/Vitest + Testing Library)
+    - Design system implementation
+    - Base component library (Button, Input, Card, Layout)
+    - Theme system (light/dark/system)
+    - Application shell (routing, layouts, error boundaries)
+    
+    **Timeline:** 3 days
+  </Tab>
+  
+  <Tab title="Backend Architect">
+    **Database + API Foundation**
+    
+    Deliverables:
+    - Database schema deployment (migrations)
+    - Index creation
+    - Seed data for development
+    - Connection pooling
+    - API scaffold (Express/FastAPI/etc.)
+    - Route structure
+    - Middleware stack (auth, validation, error handling, CORS)
+    - Health check endpoints
+    - Authentication system
+    - JWT/session management
+    - RBAC scaffold
+    
+    **Timeline:** 4 days
+  </Tab>
+  
+  <Tab title="UX Architect">
+    **CSS System Implementation**
+    
+    Deliverables:
+    - Design tokens (CSS custom properties)
+    - Brand color palette
+    - Typography scale
+    - Container system (responsive)
+    - Grid patterns
+    - Flexbox utilities
+    - Light theme variables
+    - Dark theme variables
+    - System preference detection
+    - Theme toggle component
+    
+    **Timeline:** 2 days
+  </Tab>
+</Tabs>
+
+## Verification Checkpoint (Day 4-5)
+
+<Accordion title="Evidence Collector Verification">
+**Verify with screenshot evidence:**
+
+1. ✅ CI/CD pipeline executes successfully (show pipeline logs)
+2. ✅ Application skeleton loads in browser (desktop screenshot)
+3. ✅ Application skeleton loads on mobile (mobile screenshot)
+4. ✅ Theme toggle works (light + dark screenshots)
+5. ✅ API health check responds (curl output)
+6. ✅ Database is accessible (migration status)
+7. ✅ Monitoring dashboards are active (dashboard screenshot)
+8. ✅ Component library renders (component demo page)
+
+**Format:** Evidence Package with screenshots  
+**Verdict:** PASS / FAIL with specific issues
+</Accordion>
+
+## Quality Gate Checklist
+
+| # | Criterion | Evidence Source | Status |
+|---|-----------|----------------|--------|
+| 1 | CI/CD pipeline builds, tests, deploys | Pipeline execution logs | ☐ |
+| 2 | Database schema deployed | Migration success output | ☐ |
+| 3 | API scaffold responding | curl response evidence | ☐ |
+| 4 | Frontend skeleton renders | Evidence Collector screenshots | ☐ |
+| 5 | Monitoring dashboards active | Dashboard screenshots | ☐ |
+| 6 | Design system tokens implemented | Component library demo | ☐ |
+| 7 | Theme toggle functional | Before/after screenshots | ☐ |
+| 8 | Git workflow documented | Studio Operations playbook | ☐ |
+
+## Gate Decision
+
+<Tabs>
+  <Tab title="PASS">
+    **Proceed to Phase 3**
+    
+    Working skeleton with full DevOps pipeline
+    
+    Dual sign-off: DevOps Automator (infrastructure) + Evidence Collector (visual)
+  </Tab>
+  
+  <Tab title="FAIL">
+    **Fix and Re-verify**
+    
+    Specific infrastructure or application issues identified
+    
+    Address issues and return to verification
+  </Tab>
+</Tabs>
+
+## Handoff to Phase 3
+
+<Accordion title="Phase 2 → Phase 3 Handoff Package">
+**For all Developer Agents:**
+- Working CI/CD pipeline (auto-deploys on merge)
+- Design system tokens and component library
+- API scaffold with auth and health checks
+- Database with schema and seed data
+- Git workflow and PR process
+
+**For Evidence Collector (ongoing QA):**
+- Application URLs (dev, staging)
+- Screenshot capture methodology
+- Component library reference
+- Brand guidelines for visual verification
+
+**For Agents Orchestrator (Dev↔QA loop management):**
+- Sprint Prioritizer backlog (from Phase 1)
+- Task list with acceptance criteria (from Phase 1)
+- Agent assignment matrix (from NEXUS strategy)
+- Quality thresholds for each task type
+
+**Environment Access:**
+- Dev environment: [URL]
+- Staging environment: [URL]
+- Monitoring dashboard: [URL]
+- CI/CD pipeline: [URL]
+- API documentation: [URL]
+</Accordion>
+
+---
+
+<Note>
+Phase 2 is complete when the skeleton application is running, the CI/CD pipeline is operational, and the Evidence Collector has verified all foundation elements with screenshots.
+</Note>

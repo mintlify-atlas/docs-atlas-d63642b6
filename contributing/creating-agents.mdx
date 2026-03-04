@@ -1,0 +1,686 @@
+---
+title: Creating Agents
+description: Comprehensive guide to designing and creating new agents for The Agency
+---
+
+# Creating Agents
+
+Learn how to design and create specialized agents that are effective, memorable, and valuable.
+
+## Before You Start
+
+Ask yourself these questions:
+
+<AccordionGroup>
+  <Accordion title="Is there a real need?">
+    - Does this fill a gap in the current roster?
+    - Have you encountered situations where this agent would help?
+    - Is this different from existing agents?
+  </Accordion>
+  
+  <Accordion title="Is the scope right?">
+    - Is it narrow and deep (not broad and shallow)?
+    - Can you define clear deliverables?
+    - Are there measurable success metrics?
+  </Accordion>
+  
+  <Accordion title="Do you have expertise?">
+    - Have you worked in this domain?
+    - Do you know what makes someone effective in this role?
+    - Can you provide real examples?
+  </Accordion>
+</AccordionGroup>
+
+<Warning>
+  **Avoid creating**:
+  - Generic "helper" agents (too broad)
+  - Duplicates of existing agents
+  - Agents for domains you don't understand
+  - Theoretical agents without practical application
+</Warning>
+
+## Agent Design Process
+
+### Step 1: Define the Specialty
+
+<Steps>
+  <Step title="Identify the domain">
+    What specific area does this agent master?
+    
+    **Good Examples**:
+    - Email Marketing Automation Specialist
+    - GraphQL API Performance Engineer
+    - Mobile App Accessibility Expert
+    - Developer Experience (DX) Designer
+    
+    **Bad Examples**:
+    - Marketing Helper (too broad)
+    - API Developer (too generic)
+    - Mobile Expert (not specific)
+    - Designer (no specialty)
+  </Step>
+  
+  <Step title="Define the target user">
+    Who would activate this agent and when?
+    
+    **Example**:
+    ```markdown
+    ## Email Marketing Automation Specialist
+    
+    **Target User**: Marketing managers and growth teams
+    
+    **When to Use**:
+    - Setting up email automation flows
+    - Optimizing email campaigns for conversion
+    - A/B testing email sequences
+    - Analyzing email performance
+    - Improving deliverability
+    ```
+  </Step>
+  
+  <Step title="Determine what makes them special">
+    What unique value does this agent provide?
+    
+    **Example**:
+    ```markdown
+    ## What Makes Them Special
+    
+    Unlike general marketing agents:
+    - Deep expertise in email automation platforms
+    - Focus on deliverability and inbox placement
+    - Data-driven optimization approach
+    - Email-specific copywriting techniques
+    - Compliance knowledge (CAN-SPAM, GDPR)
+    ```
+  </Step>
+</Steps>
+
+### Step 2: Craft the Personality
+
+Personality should match the domain requirements.
+
+<Tabs>
+  <Tab title="Personality Traits">
+    Choose 3-5 core traits:
+    
+    **Thoroughness**:
+    - Highly thorough (QA, compliance)
+    - Balanced (most agents)
+    - Speed-focused (prototyping, growth)
+    
+    **Communication**:
+    - Direct & evidence-based
+    - Collaborative & guiding
+    - Creative & strategic
+    - Authentic & community-focused
+    
+    **Risk Tolerance**:
+    - Risk-averse (security, compliance)
+    - Balanced risk (standard development)
+    - High-risk tolerance (experimentation)
+    
+    **Scope**:
+    - Narrow & deep specialist
+    - Coordinating & cross-functional
+    
+    **Example**:
+    ```markdown
+    ## Email Marketing Automation Specialist
+    
+    **Personality Traits**:
+    - Data-driven and analytical
+    - Detail-oriented with deliverability
+    - Experimental with A/B testing
+    - Compliant and ethical
+    - Results-focused
+    ```
+  </Tab>
+  
+  <Tab title="Voice & Character">
+    Create a distinctive voice:
+    
+    **Method 1: Signature Quote**
+    
+    Write what this agent would say that others wouldn't:
+    
+    ```markdown
+    "I don't just send emails - I ensure they land in the inbox,
+    get opened, and drive action. Every sequence I design has a
+    30%+ open rate minimum and clear conversion goals."
+    ```
+    
+    **Method 2: Default Behaviors**
+    
+    What does this agent do automatically?
+    
+    ```markdown
+    **Default Behaviors**:
+    - Check deliverability before launch
+    - A/B test subject lines (minimum)
+    - Segment audiences for relevance
+    - Track conversion, not just opens
+    - Monitor spam complaints
+    ```
+    
+    **Method 3: What They Hate**
+    
+    Strong opinions create memorable character:
+    
+    ```markdown
+    **Pet Peeves**:
+    - "Blast" emails to entire list
+    - No segmentation or personalization
+    - Buying email lists
+    - Ignoring unsubscribe requests
+    - Clickbait subject lines
+    ```
+  </Tab>
+  
+  <Tab title="Communication Style">
+    How does this agent speak?
+    
+    **Examples**:
+    
+    ```markdown
+    ## Communication Examples
+    
+    ### Reporting Success
+    "Welcome sequence now achieving 42% open rate (up from 28%),
+    with 8.5% click-through on CTA. Deliverability at 98.2%.
+    Next optimization: test 2-day vs 3-day delay on email 2."
+    
+    ### Identifying Issues
+    "Spam complaint rate jumped to 0.3% - above our 0.1% threshold.
+    Root cause: segment includes users who haven't engaged in 6
+    months. Recommend re-engagement campaign or list cleanup."
+    
+    ### Making Recommendations
+    "Let's split test two subject lines: 'Save 30% this week'
+    (direct value) vs 'Your exclusive member discount' (exclusivity).
+    Test on 20% of list, send winner to remaining 80%."
+    ```
+  </Tab>
+</Tabs>
+
+### Step 3: Design Deliverables
+
+What concrete outputs does this agent produce?
+
+<Steps>
+  <Step title="Code & Implementation">
+    Provide runnable, real-world code:
+    
+    ```javascript
+    // Email automation workflow configuration
+    const welcomeSequence = {
+      trigger: 'user_signup',
+      emails: [
+        {
+          delay: 0, // Immediate
+          subject: 'Welcome to {{company_name}}!',
+          template: 'welcome-01',
+          personalization: ['first_name', 'signup_source'],
+          goals: ['profile_completion'],
+        },
+        {
+          delay: 2 * 24 * 60 * 60 * 1000, // 2 days
+          subject: 'Get started with your first project',
+          template: 'welcome-02',
+          conditions: [
+            { field: 'profile_completed', value: true },
+          ],
+          goals: ['first_project_created'],
+        },
+        {
+          delay: 5 * 24 * 60 * 60 * 1000, // 5 days
+          subject: 'Tips from {{expert_name}}',
+          template: 'welcome-03',
+          abTest: {
+            variants: ['expert-tips-a', 'expert-tips-b'],
+            splitRatio: 0.5,
+          },
+          goals: ['feature_adoption'],
+        },
+      ],
+      exitConditions: [
+        'user_unsubscribed',
+        'user_churned',
+        'completed_sequence',
+      ],
+    };
+    ```
+  </Step>
+  
+  <Step title="Templates & Frameworks">
+    Provide ready-to-use templates:
+    
+    ```markdown
+    # Email Sequence Template
+    
+    ## Welcome Sequence (5 emails, 14 days)
+    
+    ### Email 1: Immediate Welcome
+    **Goal**: Set expectations, provide quick win
+    **Subject Line Options**:
+    - A: "Welcome to [Product] - Let's get started"
+    - B: "Your [Product] account is ready!"
+    **Content**:
+    - Welcome message
+    - Account confirmation
+    - Quick start guide (1-2 steps)
+    - Support link
+    
+    ### Email 2: Day 2 - Education
+    **Goal**: Feature awareness, first activation
+    **Condition**: Opened Email 1 OR completed signup
+    **Subject Line Options**:
+    - A: "3 ways to [achieve goal] with [Product]"
+    - B: "Getting started: Your first [deliverable]"
+    **Content**:
+    - Top 3 features
+    - Video tutorial
+    - Use case example
+    - CTA to first action
+    
+    [Continue for all 5 emails...]
+    ```
+  </Step>
+  
+  <Step title="Processes & Checklists">
+    Provide step-by-step procedures:
+    
+    ```markdown
+    ## Email Campaign Launch Checklist
+    
+    ### Pre-Launch (1 week before)
+    - [ ] Segment defined and audience exported
+    - [ ] Email copy written and reviewed
+    - [ ] Subject lines (2-3 variants for A/B test)
+    - [ ] Design completed and responsive
+    - [ ] Personalization tokens tested
+    - [ ] Links validated
+    - [ ] Preview text optimized
+    - [ ] Unsubscribe link present
+    - [ ] Spam check passed (score < 5)
+    
+    ### Testing (2 days before)
+    - [ ] Send test emails to team
+    - [ ] Check rendering in major clients (Gmail, Outlook, Apple Mail)
+    - [ ] Verify mobile responsive design
+    - [ ] Test all CTAs and links
+    - [ ] Confirm tracking pixels
+    - [ ] Review deliverability score
+    
+    ### Launch Day
+    - [ ] Final approval from stakeholder
+    - [ ] Schedule or send campaign
+    - [ ] Monitor first hour performance
+    - [ ] Check spam complaints
+    - [ ] Verify tracking data
+    
+    ### Post-Launch (24-48 hours)
+    - [ ] Analyze open rates
+    - [ ] Review click-through rates
+    - [ ] Check conversion tracking
+    - [ ] Monitor deliverability
+    - [ ] Document learnings
+    ```
+  </Step>
+  
+  <Step title="Reports & Analysis">
+    Provide analysis templates:
+    
+    ```markdown
+    # Email Campaign Performance Report
+    
+    ## Campaign: [Name]
+    **Date**: [Launch Date]
+    **Audience**: [Segment Description]
+    **List Size**: [Number]
+    
+    ## Performance Metrics
+    
+    | Metric | Result | Benchmark | Status |
+    |--------|--------|-----------|--------|
+    | Deliverability | 98.5% | >98% | ✅ |
+    | Open Rate | 32.4% | >25% | ✅ |
+    | Click Rate | 6.8% | >4% | ✅ |
+    | Conversion Rate | 2.1% | >1.5% | ✅ |
+    | Unsubscribe Rate | 0.08% | <0.2% | ✅ |
+    | Spam Complaints | 0.02% | <0.1% | ✅ |
+    
+    ## A/B Test Results
+    
+    **Subject Line Test**:
+    - Variant A: "Save 30% this week" - 30.2% open rate
+    - Variant B: "Your exclusive discount" - 34.6% open rate
+    - **Winner**: Variant B (+14.6% lift)
+    
+    ## Insights & Recommendations
+    
+    ### What Worked
+    1. Exclusivity messaging outperformed direct discount
+    2. Tuesday 10am send time optimal
+    3. Segmentation by engagement level effective
+    
+    ### Areas for Improvement
+    1. CTA button color - test variations
+    2. Email length - test shorter format
+    3. Personalization - add more dynamic content
+    
+    ### Next Campaign
+    - Use "exclusive" angle in subject lines
+    - Continue Tuesday morning sends
+    - Increase personalization beyond name
+    - Test 2-column vs single-column layout
+    ```
+  </Step>
+</Steps>
+
+### Step 4: Define Workflows
+
+How does this agent approach their work?
+
+<CodeGroup>
+```markdown Standard Workflow
+## Email Campaign Workflow
+
+### Phase 1: Strategy (Day 1)
+- Define campaign goals
+- Identify target audience
+- Research competitive emails
+- Plan content themes
+
+### Phase 2: Planning (Day 2-3)
+- Write email copy
+- Design email layout
+- Plan A/B tests
+- Set up tracking
+
+### Phase 3: Testing (Day 4-5)
+- Technical testing
+- Deliverability check
+- Preview in email clients
+- Stakeholder review
+
+### Phase 4: Launch (Day 6)
+- Schedule/send campaign
+- Monitor performance
+- Quick response to issues
+
+### Phase 5: Analysis (Day 7-10)
+- Analyze results
+- Document learnings
+- Plan optimizations
+```
+
+```markdown Quality Gates
+## Campaign Quality Gates
+
+### Gate 1: Copy Review
+**Before design**
+- [ ] Goals clearly defined
+- [ ] Audience appropriate
+- [ ] Value proposition clear
+- [ ] CTA compelling
+- [ ] No grammar/spelling errors
+
+### Gate 2: Technical Review  
+**Before testing**
+- [ ] Responsive design
+- [ ] Links working
+- [ ] Personalization tokens correct
+- [ ] Unsubscribe present
+- [ ] Tracking implemented
+
+### Gate 3: Deliverability Review
+**Before launch**
+- [ ] Spam score < 5
+- [ ] Authentication configured (SPF, DKIM)
+- [ ] Engagement history good
+- [ ] List hygiene verified
+- [ ] Sender reputation strong
+
+### Gate 4: Launch Approval
+**Before send**
+- [ ] All tests passed
+- [ ] Stakeholder approval
+- [ ] Backup plan ready
+- [ ] Monitoring configured
+```
+</CodeGroup>
+
+### Step 5: Set Success Metrics
+
+How do you measure this agent's effectiveness?
+
+<Tabs>
+  <Tab title="Quantitative Metrics">
+    Numbers-based measurements:
+    
+    ```markdown
+    ## Success Metrics
+    
+    ### Email Performance
+    - Open rate > 25% (industry: 20%)
+    - Click rate > 4% (industry: 2.5%)
+    - Conversion rate > 1.5% (industry: 1%)
+    - Unsubscribe rate < 0.2%
+    - Spam complaints < 0.1%
+    
+    ### Deliverability
+    - Inbox placement > 95%
+    - Deliverability rate > 98%
+    - Bounce rate < 2%
+    - Sender reputation > 95/100
+    
+    ### Business Impact
+    - Revenue per email > $0.50
+    - Email-attributed revenue > 15% of total
+    - List growth > 10% MoM
+    - Engaged subscriber rate > 40%
+    ```
+  </Tab>
+  
+  <Tab title="Qualitative Metrics">
+    Quality-based measurements:
+    
+    ```markdown
+    ## Qualitative Success Indicators
+    
+    ### Content Quality
+    - Email copy aligns with brand voice
+    - Value-first approach (not just selling)
+    - Personalization feels relevant
+    - Design enhances readability
+    
+    ### Audience Relationship
+    - Subscribers engage consistently
+    - Positive reply rate
+    - Low complaint rate
+    - Strong brand sentiment
+    
+    ### Team Efficiency
+    - Campaign creation time reduced
+    - Fewer iterations needed
+    - Stakeholder approval faster
+    - Documentation comprehensive
+    ```
+  </Tab>
+  
+  <Tab title="Process Metrics">
+    Workflow efficiency:
+    
+    ```markdown
+    ## Process Efficiency Metrics
+    
+    ### Speed
+    - Campaign creation: < 1 week
+    - A/B test setup: < 2 hours
+    - Performance analysis: < 1 day
+    
+    ### Quality
+    - First-send success rate > 95%
+    - Rework required < 10%
+    - Technical issues < 1%
+    
+    ### Learning
+    - A/B tests per month: > 10
+    - Insights documented: 100%
+    - Learnings applied: > 80%
+    ```
+  </Tab>
+</Tabs>
+
+## Agent File Structure
+
+Every agent follows this template:
+
+```markdown
+---
+name: Agent Name
+description: One-line description of specialty
+color: colorname or "#hexcode"
+---
+
+# Agent Name
+
+## 🧠 Your Identity & Memory
+- **Role**: Clear role description
+- **Personality**: Personality traits and communication style
+- **Memory**: What the agent remembers and learns
+- **Experience**: Domain expertise and perspective
+
+## 🎯 Your Core Mission
+- Primary responsibility 1 with clear deliverables
+- Primary responsibility 2 with clear deliverables
+- Primary responsibility 3 with clear deliverables
+- **Default requirement**: Always-on best practices
+
+## 🚨 Critical Rules You Must Follow
+Domain-specific rules and constraints that define the agent's approach
+
+## 📋 Your Technical Deliverables
+Concrete examples of what the agent produces:
+- Code samples
+- Templates
+- Frameworks
+- Documents
+
+## 🔄 Your Workflow Process
+Step-by-step process the agent follows:
+1. Phase 1: Discovery and research
+2. Phase 2: Planning and strategy
+3. Phase 3: Execution and implementation
+4. Phase 4: Review and optimization
+
+## 💭 Your Communication Style
+- How the agent communicates
+- Example phrases and patterns
+- Tone and approach
+
+## 🔄 Learning & Memory
+What the agent learns from:
+- Successful patterns
+- Failed approaches
+- User feedback
+- Domain evolution
+
+## 🎯 Your Success Metrics
+Measurable outcomes:
+- Quantitative metrics (with numbers)
+- Qualitative indicators
+- Performance benchmarks
+
+## 🚀 Advanced Capabilities
+Advanced techniques and approaches the agent masters
+```
+
+See the full [Agent Template](/contributing/agent-template) for details.
+
+## Testing Your Agent
+
+Before submitting:
+
+<Steps>
+  <Step title="Self-test">
+    Use the agent yourself in real scenarios:
+    - Does it produce useful outputs?
+    - Is the personality distinctive?
+    - Are the deliverables practical?
+    - Do the workflows make sense?
+  </Step>
+  
+  <Step title="Peer review">
+    Have someone else try the agent:
+    - Can they understand the specialty?
+    - Do they get consistent results?
+    - Is the voice clear?
+    - Are there gaps or confusion?
+  </Step>
+  
+  <Step title="Real-world validation">
+    Use it on an actual project:
+    - Track what works well
+    - Note what needs improvement
+    - Iterate based on results
+    - Document learnings
+  </Step>
+</Steps>
+
+## Common Mistakes
+
+<AccordionGroup>
+  <Accordion title="Too Broad">
+    **Problem**: Agent tries to do too much
+    
+    **Example**: "Marketing Expert" covers all of marketing
+    
+    **Fix**: Narrow to specific specialty like "Email Marketing Automation Specialist"
+  </Accordion>
+  
+  <Accordion title="Generic Personality">
+    **Problem**: Agent sounds like every other agent
+    
+    **Example**: "I am a helpful assistant who will help you with..."
+    
+    **Fix**: Create distinctive voice with specific default behaviors and opinions
+  </Accordion>
+  
+  <Accordion title="Vague Deliverables">
+    **Problem**: No concrete outputs defined
+    
+    **Example**: "I will help you create better emails"
+    
+    **Fix**: "I create email sequences with 30%+ open rates, A/B test plans, and deliverability optimization"
+  </Accordion>
+  
+  <Accordion title="No Real Examples">
+    **Problem**: Only pseudo-code or theoretical examples
+    
+    **Fix**: Provide real, runnable code and actual templates used in production
+  </Accordion>
+  
+  <Accordion title="Missing Metrics">
+    **Problem**: No way to measure success
+    
+    **Fix**: Define specific, measurable outcomes with target numbers
+  </Accordion>
+</AccordionGroup>
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Agent Template" icon="file-code" href="/contributing/agent-template">
+    Use the complete template
+  </Card>
+  <Card title="Contributing Overview" icon="hand-holding-heart" href="/contributing/overview">
+    How to submit your agent
+  </Card>
+  <Card title="Agent Design" icon="palette" href="/concepts/agent-design">
+    Design philosophy deep-dive
+  </Card>
+  <Card title="Example Agents" icon="users">
+    Study existing agents for inspiration
+  </Card>
+</CardGroup>

@@ -1,0 +1,202 @@
+---
+title: 'Phase 0: Discovery'
+description: 'Intelligence gathering and market validation before committing resources'
+---
+
+# Phase 0 Playbook — Intelligence & Discovery
+
+<Info>
+**Duration:** 3-7 days | **Agents:** 6 | **Gate Keeper:** Executive Summary Generator
+</Info>
+
+## Objective
+
+Validate the opportunity before committing resources. No building until the problem, market, and regulatory landscape are understood.
+
+## Pre-Conditions
+
+<Steps>
+  <Step title="Project Brief Exists">
+    Initial concept or project brief is documented
+  </Step>
+  <Step title="Stakeholder Sponsor">
+    Project sponsor identified and engaged
+  </Step>
+  <Step title="Budget Approved">
+    Budget for discovery phase has been approved
+  </Step>
+</Steps>
+
+## Agent Activation Sequence
+
+### Wave 1: Parallel Launch (Day 1)
+
+<CardGroup cols={2}>
+  <Card title="Trend Researcher" icon="chart-line">
+    **Market Intelligence Lead**
+    
+    **Deliverables:**
+    - Competitive landscape analysis
+    - Market sizing (TAM, SAM, SOM)
+    - Trend lifecycle mapping
+    - 3-6 month forecast
+    - Investment trends
+    
+    **Timeline:** 3 days  
+    **Sources:** Minimum 15 verified sources
+  </Card>
+  
+  <Card title="Feedback Synthesizer" icon="comments">
+    **User Needs Analysis**
+    
+    **Deliverables:**
+    - Multi-channel feedback collection
+    - Sentiment analysis
+    - Pain point prioritization (RICE)
+    - Feature request analysis
+    - Churn risk indicators
+    
+    **Timeline:** 3 days
+  </Card>
+  
+  <Card title="UX Researcher" icon="users">
+    **User Behavior Analysis**
+    
+    **Deliverables:**
+    - User interview plan (5-10 users)
+    - Persona development (3-5)
+    - Journey mapping
+    - Competitor usability review
+    - Behavioral insights
+    
+    **Timeline:** 5 days
+  </Card>
+</CardGroup>
+
+### Wave 2: Parallel Launch (Day 1)
+
+<CardGroup cols={2}>
+  <Card title="Analytics Reporter" icon="chart-mixed">
+    **Data Landscape Assessment**
+    
+    **Deliverables:**
+    - Existing data source audit
+    - Signal identification
+    - Baseline metrics
+    - Data quality assessment
+    - Analytics recommendations
+    
+    **Timeline:** 2 days
+  </Card>
+  
+  <Card title="Legal Compliance Checker" icon="scale-balanced">
+    **Regulatory Scan**
+    
+    **Deliverables:**
+    - Regulatory frameworks (GDPR, CCPA, etc.)
+    - Data handling requirements
+    - Jurisdiction mapping
+    - Compliance risk assessment
+    - Blocking vs. manageable issues
+    
+    **Timeline:** 3 days
+  </Card>
+  
+  <Card title="Tool Evaluator" icon="tools">
+    **Technology Landscape**
+    
+    **Deliverables:**
+    - Tech stack assessment
+    - Build vs. buy analysis
+    - Integration feasibility
+    - Open source vs. commercial
+    - Technology risk assessment
+    
+    **Timeline:** 2 days
+  </Card>
+</CardGroup>
+
+## Convergence Point (Day 5-7)
+
+<Accordion title="Executive Summary Generator Synthesis">
+All six agents deliver their reports. The Executive Summary Generator synthesizes:
+
+```
+Activate Executive Summary Generator to synthesize Phase 0 findings.
+
+Input documents:
+1. Trend Researcher → Market Analysis Report
+2. Feedback Synthesizer → Synthesized Feedback Report
+3. UX Researcher → Research Findings Report
+4. Analytics Reporter → Data Audit Report
+5. Legal Compliance Checker → Compliance Requirements Matrix
+6. Tool Evaluator → Tech Stack Assessment
+
+Output: Executive Summary (≤500 words, SCQA format)
+Decision required: GO / NO-GO / PIVOT
+Include: Quantified market opportunity, validated user needs, 
+         regulatory path, technology feasibility
+```
+</Accordion>
+
+## Quality Gate Checklist
+
+| # | Criterion | Evidence Source | Status |
+|---|-----------|----------------|--------|
+| 1 | Market opportunity validated (TAM > threshold) | Trend Researcher report | ☐ |
+| 2 | ≥3 validated user pain points | Feedback Synthesizer + UX Researcher | ☐ |
+| 3 | No blocking compliance issues | Legal Compliance Checker | ☐ |
+| 4 | Key metrics identified | Analytics Reporter audit | ☐ |
+| 5 | Technology stack feasible | Tool Evaluator assessment | ☐ |
+| 6 | Executive summary with GO/NO-GO | Executive Summary Generator | ☐ |
+
+## Gate Decision
+
+<Tabs>
+  <Tab title="GO">
+    **Proceed to Phase 1** — Strategy & Architecture
+    
+    All criteria met. Market validated, user needs confirmed, no blockers.
+  </Tab>
+  
+  <Tab title="NO-GO">
+    **Archive findings** and redirect resources
+    
+    Insufficient market opportunity or blocking constraints identified.
+  </Tab>
+  
+  <Tab title="PIVOT">
+    **Modify scope** based on findings
+    
+    Re-run targeted discovery with adjusted parameters.
+  </Tab>
+</Tabs>
+
+## Handoff to Phase 1
+
+<Accordion title="Phase 0 → Phase 1 Handoff Package">
+**Documents to carry forward:**
+1. Market Analysis Report (Trend Researcher)
+2. Synthesized Feedback Report (Feedback Synthesizer)
+3. User Personas and Journey Maps (UX Researcher)
+4. Data Audit Report (Analytics Reporter)
+5. Compliance Requirements Matrix (Legal Compliance Checker)
+6. Tech Stack Assessment (Tool Evaluator)
+7. Executive Summary with GO decision
+
+**Key constraints identified:**
+- Regulatory constraints from Legal Compliance Checker
+- Technical constraints from Tool Evaluator
+- Market timing constraints from Trend Researcher
+
+**Priority user needs (for Sprint Prioritizer):**
+1. [Pain point 1 — from Feedback Synthesizer]
+2. [Pain point 2 — from UX Researcher]
+3. [Pain point 3 — from Feedback Synthesizer]
+</Accordion>
+
+---
+
+<Note>
+Phase 0 is complete when the Executive Summary Generator delivers a GO decision with supporting evidence from all six discovery agents.
+</Note>

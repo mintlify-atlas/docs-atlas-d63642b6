@@ -1,97 +1,233 @@
 ---
-title: "Introduction"
-description: "Welcome to the new home for your documentation"
+title: "The Agency"
+mode: custom
 ---
 
-## Setting up
+<div className="relative overflow-hidden bg-gradient-to-br from-[#0f1117] via-[#1a1d27] to-[#0f1117] dark:from-[#0f1117] dark:via-[#1a1d27] dark:to-[#0f1117] py-20">
+  <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <div className="grid lg:grid-cols-12 gap-12 items-center">
+      <div className="lg:col-span-7">
+        <h1 className="text-5xl md:text-6xl font-bold text-gray-100 dark:text-gray-100 mb-6">
+          Your Complete AI Agency at Your Fingertips
+        </h1>
+        <p className="text-xl text-gray-400 dark:text-gray-400 mb-8 max-w-2xl">
+          From frontend wizards to Reddit community ninjas, from whimsy injectors to reality checkers. Each agent is a specialized expert with personality, processes, and proven deliverables.
+        </p>
+        <div className="flex flex-wrap gap-4">
+          <a 
+            href="/quickstart" 
+            className="inline-flex items-center px-6 py-3 rounded-lg bg-[#94cb04] text-[#0f1117] font-semibold hover:bg-[#a8df05] transition-colors no-underline"
+          >
+            Get Started
+            <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+          <a 
+            href="/introduction" 
+            className="inline-flex items-center px-6 py-3 rounded-lg border border-gray-600 dark:border-gray-600 bg-white/5 dark:bg-white/5 text-gray-100 dark:text-gray-100 font-semibold hover:bg-white/10 dark:hover:bg-white/10 hover:border-[#94cb04] dark:hover:border-[#94cb04] transition-all no-underline"
+          >
+            Explore Agents
+          </a>
+        </div>
+      </div>
+      <div className="lg:col-span-5 hidden lg:block">
+        <div className="relative">
+          <div className="absolute inset-0 bg-[#94cb04]/20 blur-3xl rounded-full"></div>
+          <div className="relative bg-[#1a1d27] dark:bg-[#1a1d27] rounded-2xl p-8 border border-[#27272a] dark:border-[#27272a]">
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-[#94cb04]/20 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#94cb04]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-gray-100 dark:text-gray-100">Frontend Developer</div>
+                  <div className="text-xs text-gray-400 dark:text-gray-400">Modern web specialist</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-[#94cb04]/20 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#94cb04]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-gray-100 dark:text-gray-100">Reality Checker</div>
+                  <div className="text-xs text-gray-400 dark:text-gray-400">Evidence-based QA</div>
+                </div>
+              </div>
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-lg bg-[#94cb04]/20 flex items-center justify-center">
+                  <svg className="w-6 h-6 text-[#94cb04]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="text-sm font-semibold text-gray-100 dark:text-gray-100">Growth Hacker</div>
+                  <div className="text-xs text-gray-400 dark:text-gray-400">User acquisition expert</div>
+                </div>
+              </div>
+            </div>
+            <div className="mt-6 pt-6 border-t border-[#27272a] dark:border-[#27272a]">
+              <div className="text-2xl font-bold text-[#94cb04]">55+ Agents</div>
+              <div className="text-sm text-gray-400 dark:text-gray-400">Across 9 specialized divisions</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-Get your documentation site up and running in minutes.
+<div className="mt-16 mb-16 max-w-5xl mx-auto px-6">
+  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Quick Start</h2>
+  <p className="text-base text-gray-600 dark:text-gray-400 mb-8">Get your AI dream team up and running in minutes</p>
 
-<Card
-  title="Start here"
-  icon="rocket"
-  href="/quickstart"
-  horizontal
->
-  Follow our three step quickstart guide.
-</Card>
+  <Steps>
+    <Step title="Copy agents to Claude Code">
+      Copy the agents to your Claude Code directory to make them available in all your sessions.
+      
+      ```bash
+      cp -r agency-agents/* ~/.claude/agents/
+      ```
+    </Step>
+    
+    <Step title="Activate an agent">
+      Reference any agent in your Claude Code sessions by name.
+      
+      ```
+      Hey Claude, activate Frontend Developer mode and help me build a React component
+      ```
+    </Step>
+    
+    <Step title="Use NEXUS for multi-agent workflows">
+      For complex projects, activate the Agents Orchestrator to coordinate multiple specialists.
+      
+      ```
+      Activate Agents Orchestrator in NEXUS-Sprint mode to build [your feature]
+      ```
+      
+      <Accordion title="NEXUS deployment modes">
+        - **NEXUS-Full**: Complete product lifecycle (12-24 weeks, all agents)
+        - **NEXUS-Sprint**: Feature or MVP build (2-6 weeks, 15-25 agents)
+        - **NEXUS-Micro**: Targeted task execution (1-5 days, 5-10 agents)
+      </Accordion>
+    </Step>
+  </Steps>
+</div>
 
-## Make it yours
+<div className="mt-16 mb-16 max-w-5xl mx-auto px-6">
+  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Explore by Division</h2>
+  <p className="text-base text-gray-600 dark:text-gray-400 mb-8">Browse our specialized agents organized by expertise</p>
 
-Design a docs site that looks great and empowers your users.
+  <CardGroup cols={3}>
+    <Card title="Engineering" icon="code" href="/agents/engineering/frontend-developer">
+      Build the future with specialized developers for frontend, backend, mobile, AI, and DevOps
+    </Card>
+    <Card title="Design" icon="palette" href="/agents/design/ui-designer">
+      Create beautiful experiences with UI designers, UX researchers, brand guardians, and more
+    </Card>
+    <Card title="Marketing" icon="megaphone" href="/agents/marketing/growth-hacker">
+      Grow your audience with growth hackers, content creators, and platform-specific strategists
+    </Card>
+    <Card title="Product" icon="lightbulb" href="/agents/product/sprint-prioritizer">
+      Build the right thing with sprint prioritizers, trend researchers, and feedback synthesizers
+    </Card>
+    <Card title="Testing" icon="flask" href="/agents/testing/reality-checker">
+      Ship with confidence using evidence collectors, reality checkers, and performance benchmarkers
+    </Card>
+    <Card title="Project Management" icon="clipboard-check" href="/agents/project-management/studio-producer">
+      Keep projects on track with producers, shepherds, and operations specialists
+    </Card>
+    <Card title="Support" icon="headset" href="/agents/support/support-responder">
+      Deliver excellence with support responders, analytics reporters, and finance trackers
+    </Card>
+    <Card title="Spatial Computing" icon="cube" href="/agents/spatial-computing/xr-interface-architect">
+      Build immersive experiences with XR architects and visionOS engineers
+    </Card>
+    <Card title="Specialized" icon="star" href="/agents/specialized/agents-orchestrator">
+      Coordinate complex workflows with orchestrators and specialized data agents
+    </Card>
+  </CardGroup>
+</div>
 
-<Columns cols={2}>
-  <Card
-    title="Edit locally"
-    icon="pen-to-square"
-    href="/development"
-  >
-    Edit your docs locally and preview them in real time.
-  </Card>
-  <Card
-    title="Customize your site"
-    icon="palette"
-    href="/essentials/settings"
-  >
-    Customize the design and colors of your site to match your brand.
-  </Card>
-    <Card
-    title="Set up navigation"
-    icon="map"
-    href="/essentials/navigation"
-  >
-    Organize your docs to help users find what they need and succeed with your product.
-  </Card>
-  <Card
-    title="API documentation"
-    icon="terminal"
-    href="/api-reference/introduction"
-  >
-    Auto-generate API documentation from OpenAPI specifications.
-  </Card>
-</Columns>
+<div className="mt-16 mb-16 max-w-5xl mx-auto px-6">
+  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">What Makes This Special</h2>
+  <p className="text-base text-gray-600 dark:text-gray-400 mb-8">Not just prompts—complete agent systems with personality and process</p>
 
-## Create beautiful pages
+  <div className="grid md:grid-cols-2 gap-6">
+    <div className="p-6 rounded-xl border border-gray-200 dark:border-[#27272a] bg-gray-50 dark:bg-[#1a1d27]">
+      <div className="text-2xl mb-3">🎭</div>
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Strong Personality</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-400">
+        Each agent has a distinct voice and approach. Not generic templates—real character that shapes how they work.
+      </p>
+    </div>
 
-Everything you need to create world-class documentation.
+    <div className="p-6 rounded-xl border border-gray-200 dark:border-[#27272a] bg-gray-50 dark:bg-[#1a1d27]">
+      <div className="text-2xl mb-3">📋</div>
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Clear Deliverables</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-400">
+        Concrete outputs with code examples, not vague guidance. Every agent knows exactly what to deliver.
+      </p>
+    </div>
 
-<Columns cols={2}>
-  <Card
-    title="Write with MDX"
-    icon="pen-fancy"
-    href="/essentials/markdown"
-  >
-    Use MDX to style your docs pages.
-  </Card>
-  <Card
-    title="Code samples"
-    icon="code"
-    href="/essentials/code"
-  >
-    Add sample code to demonstrate how to use your product.
-  </Card>
-  <Card
-    title="Images"
-    icon="image"
-    href="/essentials/images"
-  >
-    Display images and other media.
-  </Card>
-  <Card
-    title="Reusable snippets"
-    icon="recycle"
-    href="/essentials/reusable-snippets"
-  >
-    Write once and reuse across your docs.
-  </Card>
-</Columns>
+    <div className="p-6 rounded-xl border border-gray-200 dark:border-[#27272a] bg-gray-50 dark:bg-[#1a1d27]">
+      <div className="text-2xl mb-3">✅</div>
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Success Metrics</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-400">
+        Measurable outcomes and quality standards. Agents know when they've succeeded and continuously improve.
+      </p>
+    </div>
 
-## Need inspiration?
+    <div className="p-6 rounded-xl border border-gray-200 dark:border-[#27272a] bg-gray-50 dark:bg-[#1a1d27]">
+      <div className="text-2xl mb-3">🔄</div>
+      <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Proven Workflows</h3>
+      <p className="text-sm text-gray-600 dark:text-gray-400">
+        Step-by-step processes that work. Battle-tested in production environments with real projects.
+      </p>
+    </div>
+  </div>
+</div>
 
-<Card
-  title="See complete examples"
-  icon="stars"
-  href="https://mintlify.com/customers"
->
-  Browse our showcase of exceptional documentation sites.
-</Card>
+<div className="mt-16 mb-16 max-w-5xl mx-auto px-6">
+  <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Real-World Use Cases</h2>
+  <p className="text-base text-gray-600 dark:text-gray-400 mb-8">See how teams use The Agency to ship faster</p>
+
+  <CardGroup cols={3}>
+    <Card title="Startup MVP" icon="rocket" href="/use-cases/startup-mvp">
+      Build and launch your MVP in 4-6 weeks with coordinated specialists
+    </Card>
+    <Card title="Enterprise Feature" icon="building" href="/use-cases/enterprise-feature">
+      Deliver production-grade features with quality gates and documentation
+    </Card>
+    <Card title="Marketing Campaign" icon="chart-line" href="/use-cases/marketing-campaign">
+      Launch multi-channel campaigns with platform-specific expertise
+    </Card>
+  </CardGroup>
+</div>
+
+<div className="mt-20 mb-16 max-w-5xl mx-auto px-6">
+  <div className="relative overflow-hidden rounded-2xl border border-gray-200 dark:border-[#27272a] bg-gradient-to-br from-gray-50 to-white dark:from-[#1a1d27] dark:to-[#0f1117] p-12">
+    <div className="relative z-10 text-center">
+      <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+        Ready to Assemble Your AI Dream Team?
+      </h2>
+      <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+        Start with a single agent or orchestrate an entire pipeline. Your specialized team is waiting.
+      </p>
+      <a 
+        href="/quickstart" 
+        className="inline-flex items-center px-8 py-4 rounded-lg bg-[#94cb04] text-[#0f1117] font-semibold hover:bg-[#a8df05] transition-colors no-underline text-lg"
+      >
+        Get Started Now
+        <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+        </svg>
+      </a>
+    </div>
+    <div className="absolute inset-0 bg-[#94cb04]/5 dark:bg-[#94cb04]/5"></div>
+  </div>
+</div>

@@ -1,122 +1,194 @@
 {
   "$schema": "https://mintlify.com/docs.json",
+  "name": "The Agency",
   "theme": "mint",
-  "name": "Mint Starter Kit",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#94cb04",
+    "light": "#545454",
+    "dark": "#94cb04"
   },
-  "favicon": "/favicon.svg",
+  "favicon": "https://media.brand.dev/288cc7c4-5cef-4376-950b-bdf0083eedae.png",
+  "logo": {
+    "light": "https://media.brand.dev/288cc7c4-5cef-4376-950b-bdf0083eedae.png",
+    "dark": "https://media.brand.dev/288cc7c4-5cef-4376-950b-bdf0083eedae.png"
+  },
+  "navbar": {
+    "primary": {
+      "type": "github",
+      "href": "https://github.com/msitarzewski/agency-agents"
+    }
+  },
+  "footer": {
+    "socials": {
+      "github": "https://github.com/msitarzewski/agency-agents"
+    }
+  },
   "navigation": {
     "tabs": [
       {
-        "tab": "Guides",
+        "tab": "Documentation",
         "groups": [
           {
-            "group": "Getting started",
+            "group": "Get Started",
+            "pages": ["introduction", "quickstart", "installation"]
+          },
+          {
+            "group": "Core Concepts",
+            "pages": ["concepts/agent-design", "concepts/personality-traits", "concepts/deliverables", "concepts/workflows"]
+          },
+          {
+            "group": "Use Cases",
+            "pages": ["use-cases/startup-mvp", "use-cases/enterprise-feature", "use-cases/marketing-campaign"]
+          },
+          {
+            "group": "Contributing",
+            "pages": ["contributing/overview", "contributing/creating-agents", "contributing/agent-template"]
+          }
+        ]
+      },
+      {
+        "tab": "Agent Divisions",
+        "groups": [
+          {
+            "group": "Engineering",
             "pages": [
-              "index",
-              "quickstart",
-              "development"
+              "agents/engineering/frontend-developer",
+              "agents/engineering/backend-architect",
+              "agents/engineering/mobile-app-builder",
+              "agents/engineering/ai-engineer",
+              "agents/engineering/devops-automator",
+              "agents/engineering/rapid-prototyper",
+              "agents/engineering/senior-developer"
             ]
           },
           {
-            "group": "Customization",
+            "group": "Design",
             "pages": [
-              "essentials/settings",
-              "essentials/navigation"
+              "agents/design/ui-designer",
+              "agents/design/ux-researcher",
+              "agents/design/ux-architect",
+              "agents/design/brand-guardian",
+              "agents/design/visual-storyteller",
+              "agents/design/whimsy-injector",
+              "agents/design/image-prompt-engineer"
             ]
           },
           {
-            "group": "Writing content",
+            "group": "Marketing",
             "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
+              "agents/marketing/growth-hacker",
+              "agents/marketing/content-creator",
+              "agents/marketing/twitter-engager",
+              "agents/marketing/tiktok-strategist",
+              "agents/marketing/instagram-curator",
+              "agents/marketing/reddit-community-builder",
+              "agents/marketing/app-store-optimizer",
+              "agents/marketing/social-media-strategist"
             ]
           },
           {
-            "group": "AI tools",
+            "group": "Product",
             "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
+              "agents/product/sprint-prioritizer",
+              "agents/product/trend-researcher",
+              "agents/product/feedback-synthesizer"
+            ]
+          },
+          {
+            "group": "Project Management",
+            "pages": [
+              "agents/project-management/studio-producer",
+              "agents/project-management/project-shepherd",
+              "agents/project-management/studio-operations",
+              "agents/project-management/experiment-tracker",
+              "agents/project-management/senior-project-manager"
+            ]
+          },
+          {
+            "group": "Testing",
+            "pages": [
+              "agents/testing/evidence-collector",
+              "agents/testing/reality-checker",
+              "agents/testing/test-results-analyzer",
+              "agents/testing/performance-benchmarker",
+              "agents/testing/api-tester",
+              "agents/testing/tool-evaluator",
+              "agents/testing/workflow-optimizer"
+            ]
+          },
+          {
+            "group": "Support",
+            "pages": [
+              "agents/support/support-responder",
+              "agents/support/analytics-reporter",
+              "agents/support/finance-tracker",
+              "agents/support/infrastructure-maintainer",
+              "agents/support/legal-compliance-checker",
+              "agents/support/executive-summary-generator"
+            ]
+          },
+          {
+            "group": "Spatial Computing",
+            "pages": [
+              "agents/spatial-computing/xr-interface-architect",
+              "agents/spatial-computing/macos-spatial-metal-engineer",
+              "agents/spatial-computing/xr-immersive-developer",
+              "agents/spatial-computing/xr-cockpit-interaction-specialist",
+              "agents/spatial-computing/visionos-spatial-engineer",
+              "agents/spatial-computing/terminal-integration-specialist"
+            ]
+          },
+          {
+            "group": "Specialized",
+            "pages": [
+              "agents/specialized/agents-orchestrator",
+              "agents/specialized/data-analytics-reporter",
+              "agents/specialized/lsp-index-engineer",
+              "agents/specialized/sales-data-extraction-agent",
+              "agents/specialized/data-consolidation-agent",
+              "agents/specialized/report-distribution-agent",
+              "agents/specialized/agentic-identity-trust"
             ]
           }
         ]
       },
       {
-        "tab": "API reference",
+        "tab": "NEXUS Strategy",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Overview",
+            "pages": ["nexus/introduction", "nexus/executive-brief", "nexus/quickstart"]
+          },
+          {
+            "group": "Playbooks",
             "pages": [
-              "api-reference/introduction"
+              "nexus/playbooks/phase-0-discovery",
+              "nexus/playbooks/phase-1-strategy",
+              "nexus/playbooks/phase-2-foundation",
+              "nexus/playbooks/phase-3-build",
+              "nexus/playbooks/phase-4-hardening",
+              "nexus/playbooks/phase-5-launch",
+              "nexus/playbooks/phase-6-operate"
             ]
           },
           {
-            "group": "Endpoint examples",
+            "group": "Coordination",
             "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "nexus/coordination/agent-activation",
+              "nexus/coordination/handoff-templates"
+            ]
+          },
+          {
+            "group": "Runbooks",
+            "pages": [
+              "nexus/runbooks/startup-mvp",
+              "nexus/runbooks/enterprise-feature",
+              "nexus/runbooks/marketing-campaign",
+              "nexus/runbooks/incident-response"
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
-        }
-      ]
-    }
-  },
-  "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:hi@mintlify.com"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
-    }
-  },
-  "contextual": {
-    "options": [
-     "copy",
-     "view",
-     "chatgpt",
-     "claude",
-     "perplexity",
-     "mcp",
-     "cursor",
-     "vscode"
-   ]
-  },
-  "footer": {
-    "socials": {
-      "x": "https://x.com/mintlify",
-      "github": "https://github.com/mintlify",
-      "linkedin": "https://linkedin.com/company/mintlify"
-    }
+    ]
   }
 }

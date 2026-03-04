@@ -1,0 +1,409 @@
+---
+title: Installation
+description: Install and set up The Agency in your development environment
+---
+
+# Installation & Setup
+
+Get The Agency up and running in your development environment.
+
+## Prerequisites
+
+Before installing The Agency, ensure you have:
+
+<CardGroup cols={2}>
+  <Card title="Git" icon="git-alt">
+    For cloning the repository
+  </Card>
+  <Card title="Claude Code" icon="robot">
+    Optional - for seamless integration
+  </Card>
+  <Card title="Text Editor" icon="code">
+    Any editor to view/customize agents
+  </Card>
+  <Card title="Terminal" icon="terminal">
+    For running installation commands
+  </Card>
+</CardGroup>
+
+## Installation Methods
+
+<Tabs>
+  <Tab title="Claude Code Integration">
+    ### Claude Code Installation
+    
+    The recommended method for seamless agent activation:
+    
+    <Steps>
+      <Step title="Clone the repository">
+        ```bash
+        git clone https://github.com/msitarzewski/agency-agents.git
+        cd agency-agents
+        ```
+      </Step>
+      
+      <Step title="Copy agents to Claude Code directory">
+        ```bash
+        # Create the agents directory if it doesn't exist
+        mkdir -p ~/.claude/agents/
+        
+        # Copy all agents
+        cp -r engineering design marketing product project-management testing support spatial-computing specialized ~/.claude/agents/
+        ```
+      </Step>
+      
+      <Step title="Verify installation">
+        ```bash
+        # List installed agents
+        ls -la ~/.claude/agents/
+        
+        # You should see all division directories
+        ```
+      </Step>
+      
+      <Step title="Test activation">
+        Open Claude Code and try:
+        
+        ```
+        Hey Claude, activate Frontend Developer mode
+        ```
+        
+        The agent should respond with their specialized personality.
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Standalone Installation">
+    ### Standalone Installation
+    
+    Use agents as reference templates without Claude Code:
+    
+    <Steps>
+      <Step title="Clone the repository">
+        ```bash
+        git clone https://github.com/msitarzewski/agency-agents.git
+        cd agency-agents
+        ```
+      </Step>
+      
+      <Step title="Organize your workspace">
+        ```bash
+        # Create a project directory
+        mkdir -p ~/ai-agents/the-agency
+        
+        # Copy agents
+        cp -r * ~/ai-agents/the-agency/
+        ```
+      </Step>
+      
+      <Step title="Browse agents">
+        ```bash
+        # Navigate to any division
+        cd ~/ai-agents/the-agency/engineering
+        
+        # View an agent
+        cat engineering-frontend-developer.md
+        ```
+      </Step>
+      
+      <Step title="Use as prompts">
+        Copy agent content into your preferred AI tool as a prompt template.
+      </Step>
+    </Steps>
+  </Tab>
+  
+  <Tab title="Fork & Customize">
+    ### Fork for Customization
+    
+    Create your own customized version:
+    
+    <Steps>
+      <Step title="Fork on GitHub">
+        1. Visit [github.com/msitarzewski/agency-agents](https://github.com/msitarzewski/agency-agents)
+        2. Click "Fork" in the top right
+        3. Clone your fork:
+        
+        ```bash
+        git clone https://github.com/YOUR_USERNAME/agency-agents.git
+        cd agency-agents
+        ```
+      </Step>
+      
+      <Step title="Customize agents">
+        Edit agent files to match your needs:
+        
+        ```bash
+        # Edit an agent
+        vim engineering/engineering-frontend-developer.md
+        
+        # Customize personality, workflows, or deliverables
+        ```
+      </Step>
+      
+      <Step title="Add custom agents">
+        Create new agents following the template:
+        
+        ```bash
+        # Create a new agent
+        touch specialized/your-custom-agent.md
+        
+        # Follow the agent template structure
+        ```
+      </Step>
+      
+      <Step title="Commit changes">
+        ```bash
+        git add .
+        git commit -m "Customize agents for my workflow"
+        git push origin main
+        ```
+      </Step>
+      
+      <Step title="Install customized agents">
+        ```bash
+        # Copy to Claude Code
+        cp -r * ~/.claude/agents/
+        ```
+      </Step>
+    </Steps>
+  </Tab>
+</Tabs>
+
+## Directory Structure
+
+After installation, your directory structure should look like:
+
+```
+~/.claude/agents/
+├── engineering/
+│   ├── engineering-frontend-developer.md
+│   ├── engineering-backend-architect.md
+│   ├── engineering-mobile-app-builder.md
+│   ├── engineering-ai-engineer.md
+│   ├── engineering-devops-automator.md
+│   ├── engineering-rapid-prototyper.md
+│   └── engineering-senior-developer.md
+├── design/
+│   ├── design-ui-designer.md
+│   ├── design-ux-researcher.md
+│   ├── design-ux-architect.md
+│   ├── design-brand-guardian.md
+│   ├── design-visual-storyteller.md
+│   ├── design-whimsy-injector.md
+│   └── design-image-prompt-engineer.md
+├── marketing/
+│   ├── marketing-growth-hacker.md
+│   ├── marketing-content-creator.md
+│   ├── marketing-twitter-engager.md
+│   ├── marketing-tiktok-strategist.md
+│   ├── marketing-instagram-curator.md
+│   ├── marketing-reddit-community-builder.md
+│   ├── marketing-app-store-optimizer.md
+│   └── marketing-social-media-strategist.md
+├── product/
+│   ├── product-sprint-prioritizer.md
+│   ├── product-trend-researcher.md
+│   └── product-feedback-synthesizer.md
+├── project-management/
+│   ├── project-management-studio-producer.md
+│   ├── project-management-project-shepherd.md
+│   ├── project-management-studio-operations.md
+│   ├── project-management-experiment-tracker.md
+│   └── project-manager-senior.md
+├── testing/
+│   ├── testing-evidence-collector.md
+│   ├── testing-reality-checker.md
+│   ├── testing-test-results-analyzer.md
+│   ├── testing-performance-benchmarker.md
+│   ├── testing-api-tester.md
+│   ├── testing-tool-evaluator.md
+│   └── testing-workflow-optimizer.md
+├── support/
+│   ├── support-support-responder.md
+│   ├── support-analytics-reporter.md
+│   ├── support-finance-tracker.md
+│   ├── support-infrastructure-maintainer.md
+│   ├── support-legal-compliance-checker.md
+│   └── support-executive-summary-generator.md
+├── spatial-computing/
+│   ├── xr-interface-architect.md
+│   ├── macos-spatial-metal-engineer.md
+│   ├── xr-immersive-developer.md
+│   ├── xr-cockpit-interaction-specialist.md
+│   ├── visionos-spatial-engineer.md
+│   └── terminal-integration-specialist.md
+└── specialized/
+    ├── agents-orchestrator.md
+    ├── data-analytics-reporter.md
+    ├── lsp-index-engineer.md
+    ├── sales-data-extraction-agent.md
+    ├── data-consolidation-agent.md
+    └── report-distribution-agent.md
+```
+
+## Configuration
+
+### Custom Agent Location
+
+If you want to install agents in a different location:
+
+```bash
+# Set custom location
+export AGENCY_AGENTS_PATH="/path/to/your/agents"
+
+# Copy agents
+cp -r agency-agents/* $AGENCY_AGENTS_PATH/
+```
+
+### Selective Installation
+
+Install only specific divisions:
+
+```bash
+# Install only engineering and design agents
+cp -r engineering design ~/.claude/agents/
+```
+
+### Environment-Specific Agents
+
+Create different agent sets for different projects:
+
+```bash
+# Create project-specific agent directories
+mkdir -p ~/projects/project-a/agents
+mkdir -p ~/projects/project-b/agents
+
+# Copy relevant agents to each project
+cp -r engineering design ~/projects/project-a/agents/
+cp -r marketing support ~/projects/project-b/agents/
+```
+
+## Verification
+
+Verify your installation:
+
+<Steps>
+  <Step title="Check file count">
+    ```bash
+    find ~/.claude/agents -name "*.md" | wc -l
+    # Should show 55+ agent files
+    ```
+  </Step>
+  
+  <Step title="Test agent activation">
+    Open Claude Code and activate a test agent:
+    
+    ```
+    Activate Evidence Collector mode and describe your role
+    ```
+    
+    Expected response should include personality and workflow details.
+  </Step>
+  
+  <Step title="Verify agent content">
+    ```bash
+    # Check an agent file has all sections
+    cat ~/.claude/agents/engineering/engineering-frontend-developer.md
+    
+    # Should include:
+    # - Identity & Memory
+    # - Core Mission
+    # - Critical Rules
+    # - Technical Deliverables
+    # - Workflow Process
+    # - Success Metrics
+    ```
+  </Step>
+</Steps>
+
+## Troubleshooting
+
+<AccordionGroup>
+  <Accordion title="Agents not activating in Claude Code">
+    **Problem**: Claude doesn't recognize agent activation commands.
+    
+    **Solutions**:
+    1. Verify agents are in `~/.claude/agents/`
+    2. Check file permissions: `chmod -R 644 ~/.claude/agents/*.md`
+    3. Restart Claude Code
+    4. Try full path: "Activate the agent at ~/.claude/agents/engineering/engineering-frontend-developer.md"
+  </Accordion>
+  
+  <Accordion title="Permission denied errors">
+    **Problem**: Cannot copy files to `~/.claude/agents/`
+    
+    **Solutions**:
+    1. Check directory exists: `mkdir -p ~/.claude/agents`
+    2. Fix permissions: `chmod 755 ~/.claude/agents`
+    3. Use sudo if needed: `sudo cp -r * ~/.claude/agents/`
+  </Accordion>
+  
+  <Accordion title="Git clone fails">
+    **Problem**: Cannot clone repository
+    
+    **Solutions**:
+    1. Check internet connection
+    2. Verify Git installation: `git --version`
+    3. Try HTTPS instead of SSH:
+       ```bash
+       git clone https://github.com/msitarzewski/agency-agents.git
+       ```
+  </Accordion>
+  
+  <Accordion title="Agents behaving generically">
+    **Problem**: Agents don't show specialized personality
+    
+    **Solutions**:
+    1. Be explicit: "Activate Frontend Developer mode AND follow your personality guidelines"
+    2. Provide context: Include project details and specific requirements
+    3. Reference deliverables: "Use your technical deliverables as examples"
+  </Accordion>
+</AccordionGroup>
+
+## Updating Agents
+
+Keep your agents up to date:
+
+```bash
+# Navigate to repository
+cd agency-agents
+
+# Pull latest changes
+git pull origin main
+
+# Reinstall agents
+cp -r * ~/.claude/agents/
+```
+
+## Uninstallation
+
+Remove The Agency:
+
+```bash
+# Remove all agents
+rm -rf ~/.claude/agents/
+
+# Or remove specific divisions
+rm -rf ~/.claude/agents/marketing/
+```
+
+## Next Steps
+
+<CardGroup cols={2}>
+  <Card title="Quick Start" icon="rocket" href="/quickstart">
+    Start using agents immediately
+  </Card>
+  <Card title="Agent Design" icon="palette" href="/concepts/agent-design">
+    Understand agent architecture
+  </Card>
+  <Card title="Use Cases" icon="lightbulb" href="/use-cases/startup-mvp">
+    See agents in action
+  </Card>
+  <Card title="Creating Agents" icon="plus" href="/contributing/creating-agents">
+    Build your own agents
+  </Card>
+</CardGroup>
+
+<Note>
+  Having issues? Check our [GitHub Issues](https://github.com/msitarzewski/agency-agents/issues) or start a [Discussion](https://github.com/msitarzewski/agency-agents/discussions).
+</Note>
